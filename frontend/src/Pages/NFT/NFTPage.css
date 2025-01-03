@@ -1,0 +1,31 @@
+.nft-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .banner {
+    margin-bottom: 20px;
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .nft-info {
+    margin-bottom: 30px;
+  }
+  
+  .links a {
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .nft-image img {
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
+  }
+  

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 
 function Main() {
   const [userDetails, setUserDetails] = useState({ name: "", walletAddress: "" });
+  const [searchQuery, setSearchQuery] = useState('');
+  let navigate = useNavigate()
   const [walletProfile, setWalletProfile] = useState({
     nftCount: 0,
     collectionCount: 0,
@@ -53,6 +56,13 @@ function Main() {
     showUserDetail();
   }, []);
 
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    
+        navigate(`/nft/${searchQuery}`); // Redirect to NFT page
+      
+  };
+
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1>Hello {userDetails.name}</h1>
@@ -65,7 +75,20 @@ function Main() {
         <li>LooksRare: {walletProfile.marketplaceRewards.looks.toFixed(2)}</li>
         <li>Rarible: {walletProfile.marketplaceRewards.rari.toFixed(2)}</li>
       </ul>
+
+      {/* Search Bar */}
+      <form onSubmit={handleSearch}>
+        <input
+          type="text"
+          placeholder="Search for NFTs..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{ padding: "10px", width: "250px" }}
+        />
+        <button type="submit" style={{ padding: "10px", marginLeft: "10px" }}>Search</button>
+      </form>
     </div>
+    
   );
 }
 

@@ -14,7 +14,7 @@ app.get("/",(req,res)=>{
     res.send("Hello")
 })
 app.use('/api/auth', require('./routes/auth'));
-// app.use('/api/notes', require('./routes/notes'));
+app.use('/api/nft', require('./routes/nftFavorite'));
 
 app.listen(port,()=>{
     console.log(`App listening on http://localhost:${port}`)
