@@ -37,6 +37,7 @@ router.post(
           name: req.body.name,
           email: req.body.email,
           password: secPass,
+          walletAddress:req.body.walletAddress
         });
 
         //Creating a JWT Token
@@ -95,7 +96,7 @@ router.post(
 );
 
 // ROUTE:3 - Get details of logged in user using POST:/api/auth/getuser
-router.post(
+router.get(
     "/getuser",
     fetchuser,
     async (req, res) => {

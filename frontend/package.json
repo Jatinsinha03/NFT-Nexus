@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@api/unleashnfts": "file:.api/apis/unleashnfts",
     "cra-template": "1.2.0",
+    "ethers": "^6.13.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1"
+    "react-router-dom": "^7.1.1",
+    "react-scripts": "5.0.1",
+    "web3": "^4.16.0"
   },
   "scripts": {
     "start": "react-scripts start",
