@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate,Link } from 'react-router-dom'; 
 
 function Main() {
   const [userDetails, setUserDetails] = useState({ name: "", walletAddress: "" });
@@ -66,6 +66,7 @@ function Main() {
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1>Hello {userDetails.name}</h1>
+      <Link to="/favorite"><button>Show Favorites</button></Link>
       <h2>Wallet Address: {userDetails.walletAddress}</h2>
       <h3>NFT Count: {walletProfile.nftCount}</h3>
       <h3>Collection Count: {walletProfile.collectionCount}</h3>

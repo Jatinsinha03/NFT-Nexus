@@ -14,7 +14,6 @@ export default function Login(props) {
             },
         body: JSON.stringify(loginDetails)})
         const json = await response.json();
-        console.log(json)
         if(json.flag){
 
             localStorage.setItem('token' , json.authToken);

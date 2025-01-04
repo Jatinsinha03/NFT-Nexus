@@ -1,0 +1,184 @@
+/* General Styling */
+body {
+    margin: 0;
+    
+    color: #ffffff;
+  }
+  
+  button {
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .hero-heading {
+    font-family: 'Quantico', sans-serif;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subheading {
+    font-size: 20px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .cta-button {
+    background-color: #6c63ff;
+    color: #ffffff;
+  }
+  
+  .wallet-button {
+    background-color: #00c896;
+    color: #ffffff;
+  }
+  
+  /* About Section */
+  .about-section {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .about-heading {
+    font-family: 'Quantico', sans-serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .about-content {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .learn-more-button {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  /* Features Section */
+  .features-section {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .features-heading {
+    font-family: 'Quantico', sans-serif;
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  
+  .feature {
+    margin-bottom: 30px;
+  }
+  
+  .feature-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .feature-description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* How It Works Section */
+  .how-it-works-section {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .how-heading {
+    font-family: 'Quantico', sans-serif;
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  
+  .how-step {
+    margin-bottom: 20px;
+  }
+  
+  .step-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .step-description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Footer Section */
+  .footer-section {
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .footer-links {
+    margin-bottom: 20px;
+  }
+  
+  .footer-link {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+  
+  .social-icons {
+    margin-bottom: 20px;
+  }
+  
+  .social-icon {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  
+  .contact-info {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .legal-links {
+    margin-top: 10px;
+  }
+  
+  .legal-link {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .legal-link:hover {
+    text-decoration: underline;
+  }
+  

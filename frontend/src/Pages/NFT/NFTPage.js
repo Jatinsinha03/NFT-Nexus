@@ -17,10 +17,10 @@ function NFTPage() {
             }
           );
           const finalResponse = await response.json()
-          console.log(finalResponse)
+          
           setNftData(finalResponse.data[0]); // Assuming the first item is the relevant data
         } catch (error) {
-          console.error('Error fetching NFT collection data:', error);
+          alert('Error fetching NFT collection data:', error);
         }
       };
   useEffect(() => {
@@ -32,6 +32,35 @@ function NFTPage() {
     return <div>Loading...</div>;
   }
 
+  const handleFavorite = async () => {
+    try {
+  
+      const response = await fetch("http://localhost:8000/api/nft/addToFavorite", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+          blockchain: nftData.blockchain,
+          contractAddress: nftData.contract_address,
+          chainId: nftData.chain_id,
+        }),
+      });
+  
+      const json = await response.json();
+  
+      if (response.ok) {
+        alert("Added to favorites");
+      } else {
+        alert(`Failed to add to favorites: ${json.message || "Unknown error"}`);
+      }
+    } catch (error) {
+      alert("An error occurred while adding to favorites.");
+    }
+  };
+  
+
   return (
     <div className="nft-page">
       <div className="banner">
@@ -39,6 +68,7 @@ function NFTPage() {
       </div>
       <div className="nft-info">
         <h1>{nftData.collection}</h1>
+        <button onClick={handleFavorite}>Add to Favorite</button>
         <p>{nftData.description}</p>
         <div className="links">
           {nftData.external_url && (
