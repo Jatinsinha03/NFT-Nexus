@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Favorites() {
   const [favoriteNfts, setFavoriteNfts] = useState([]);
@@ -80,6 +81,7 @@ function Favorites() {
               <div className="nft-image">
                 <img src={nft.image_url} alt={nft.collection} />
               </div>
+              <Link to={`/nft/${nft.contract_address}`}><button>View</button></Link>
             </div>
           ))
         )}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './NFTPage.css'
 import { useParams } from 'react-router-dom';
+import AnalyticsPage from '../Analytics/AnalyticsPage';
 
 function NFTPage() {
     const { contractAddress } = useParams();
@@ -101,6 +102,7 @@ function NFTPage() {
       <div className="nft-image">
         <img src={nftData.image_url} alt={nftData.collection} />
       </div>
+      <AnalyticsPage contractAddress={contractAddress}/>
     </div>
   );
 }
