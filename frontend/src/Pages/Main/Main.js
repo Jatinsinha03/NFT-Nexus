@@ -15,6 +15,13 @@ function Main() {
     }
   });
 
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    localStorage.removeItem('token');
+    navigate("/");    
+  };
+
+
   // Fetch user details
   const showUserDetail = async () => {
     try {
@@ -67,6 +74,7 @@ function Main() {
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1>Hello {userDetails.name}</h1>
       <Link to="/favorite"><button>Show Favorites</button></Link>
+      <button onClick={handleLogout}>Logout</button>
       <h2>Wallet Address: {userDetails.walletAddress}</h2>
       <h3>NFT Count: {walletProfile.nftCount}</h3>
       <h3>Collection Count: {walletProfile.collectionCount}</h3>
