@@ -74,6 +74,7 @@ function Main() {
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1>Hello {userDetails.name}</h1>
       <Link to="/favorite"><button>Show Favorites</button></Link>
+      <Link to="/marketplacerisk"><button>Analyze Marketplace</button></Link>
       <button onClick={handleLogout}>Logout</button>
       <h2>Wallet Address: {userDetails.walletAddress}</h2>
       <h3>NFT Count: {walletProfile.nftCount}</h3>

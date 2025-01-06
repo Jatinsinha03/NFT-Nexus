@@ -10,6 +10,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import Main from './Pages/Main/Main';
 import NFTPage from './Pages/NFT/NFTPage';
 import Favorites from './Pages/Favorites/Favorites';
+import RiskCalculator from './Pages/MarketPlace/RiskCalculator';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           <Route exact path='/main' element={<Main/>}/>
           <Route exact path='/favorite' element={<Favorites/>}/>
           <Route path="/nft/:contractAddress" element={<NFTPage />} />
+          <Route path="marketplacerisk" element={<RiskCalculator/>} />
+
         </Routes>
       
     </Router>
