@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Web3 from 'web3';
+import './SignUp.css'; // Import the new CSS file
 
 export default function SignUp(props) {
   const [signup, setSignUp] = useState({ name: "", email: "", password: "", cpassword: "", walletAddress: "" });
@@ -53,41 +54,83 @@ export default function SignUp(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label htmlFor="name" className="form-label">Name</label>
-        <input type="text" className="form-control" onChange={onchange} required minLength={3} id="name" name="name" />
+    <div className="signup-body">
+      <div id="signup-background-text">NFT NEXUS</div>
+      <div className="signup-container">
+        <form onSubmit={handleSubmit} className="signup-form">
+          <h2 className="signup-title">Create Account</h2>
+          <div className="signup-mb-3">
+            <label htmlFor="signup-name" className="signup-form-label">Name</label>
+            <input
+              type="text"
+              className="signup-form-control"
+              onChange={onchange}
+              required
+              minLength={3}
+              id="signup-name"
+              name="name"
+              placeholder="Enter your name"
+            />
+          </div>
+          <div className="signup-mb-3">
+            <label htmlFor="signup-email" className="signup-form-label">Email Address</label>
+            <input
+              type="email"
+              className="signup-form-control"
+              onChange={onchange}
+              required
+              id="signup-email"
+              name="email"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div className="signup-mb-3">
+            <label htmlFor="signup-password" className="signup-form-label">Password</label>
+            <input
+              type="password"
+              className="signup-form-control"
+              onChange={onchange}
+              minLength={5}
+              required
+              name="password"
+              id="signup-password"
+              placeholder="Enter your password"
+            />
+          </div>
+          <div className="signup-mb-3">
+            <label htmlFor="signup-cpassword" className="signup-form-label">Confirm Password</label>
+            <input
+              type="password"
+              className="signup-form-control"
+              onChange={onchange}
+              minLength={5}
+              required
+              name="cpassword"
+              id="signup-cpassword"
+              placeholder="Confirm your password"
+            />
+          </div>
+          <div className="signup-mb-3">
+            <label htmlFor="signup-walletAddress" className="signup-form-label">Wallet Address</label>
+            <input
+              type="text"
+              className="signup-form-control"
+              value={signup.walletAddress}
+              onChange={onchange}
+              placeholder="Enter wallet address or connect your wallet"
+              id="signup-walletAddress"
+              name="walletAddress"
+            />
+          </div>
+          <button type="button" className="signup-btn-secondary signup-mb-3" onClick={handleConnectWallet}>
+            Connect Wallet
+          </button>
+          <button type="submit" className="signup-btn-primary">Sign Up</button>
+          <p className="signup-text">
+            Already have an account? <a href="/login">Log in</a>
+          </p>
+        </form>
       </div>
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">Email address</label>
-        <input type="email" className="form-control" onChange={onchange} required id="email" name="email" />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="password" className="form-label">Password</label>
-        <input type="password" className="form-control" onChange={onchange} minLength={5} required name="password" id="password" />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-        <input type="password" className="form-control" onChange={onchange} minLength={5} required name="cpassword" id="cpassword" />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="walletAddress" className="form-label">Wallet Address</label>
-        <input
-          type="text"
-          className="form-control"
-          value={signup.walletAddress}
-          onChange={onchange}
-          placeholder="Enter wallet address or use Connect Wallet"
-          id="walletAddress"
-          name="walletAddress"
-        />
-      </div>
-      <button type="button" className="btn btn-secondary mb-3" onClick={handleConnectWallet}>
-        Connect Wallet
-      </button>
-      <button type="submit" className="btn btn-primary">
-        SignUp
-      </button>
-    </form>
+    </div>
   );
 }
