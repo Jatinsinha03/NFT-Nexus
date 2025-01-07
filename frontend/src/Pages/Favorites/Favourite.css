@@ -1,0 +1,122 @@
+.Favorite-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .Favorite-page h1 {
+    color: #ffffff; /* Set the main text color to white */
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 4.2px rgba(255, 127, 80, 0.3), 
+                 0 0 8px rgba(255, 127, 80, 0.3);
+  }
+  
+  .Favorite-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .Favorite-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transitions */
+
+  }
+  
+/* Hover effect for card */
+.Favorite-item:hover {
+    transform: translateY(-10px); /* Lift card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add deeper shadow on hover */
+  }
+
+  .Favorite-info {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .Favorite-info h2 {
+    font-size: 1.8rem;
+    color: #ff7f50;
+    margin-bottom: 10px;
+  }
+  
+  .Favorite-info p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .Favorite-button {
+    background-color: #ff7f50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: flex-start; /* Align button to the bottom-left */
+  }
+  
+  /* Hover effect for button */
+.Favorite-button:hover {
+    background-color: #ff5722;
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+  }
+  
+  .Favorite-image {
+    flex: 1;
+    max-width: 40%; /* Ensure consistent image sizing */
+    text-align: center;
+    overflow: hidden; /* Prevent overflow */
+    border-radius: 10px;
+  }
+  
+  .Favorite-image img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out; /* Smooth zoom effect */
+  }
+  
+  /* Hover effect for image */
+  .Favorite-image:hover img {
+    transform: scale(1.1); /* Slightly zoom in on hover */
+  }
+  
+  
+  @media (max-width: 768px) {
+    .Favorite-item {
+      flex-direction: column;
+    }
+  
+    .Favorite-info {
+      text-align: center;
+    }
+  
+    .Favorite-button {
+      align-self: center;
+    }
+  
+    .Favorite-info h2 {
+      font-size: 1.5rem;
+    }
+  
+    .Favorite-info p {
+      font-size: 0.9rem;
+    }
+  }
+  
