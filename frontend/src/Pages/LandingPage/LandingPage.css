@@ -295,8 +295,8 @@ body {
 .footer-section {
   width: 100%;
   background: linear-gradient(85.2deg, rgba(33, 3, 40, 1) 7.5%, rgba(65, 5, 72, 1) 88.7%); /* Matching the main background */
-  color: #cfcfcf;
-  padding: 40px 20px;
+  color: #fffefe;
+  padding: 40px 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

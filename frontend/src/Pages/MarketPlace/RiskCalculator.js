@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Footer from '../../components/Footer';
 
 const RiskCalculator = () => {
   // State to hold user inputs and API data
@@ -115,6 +116,7 @@ const RiskCalculator = () => {
   };
 
   return (
+    <>
     <div>
       <h1>NFT Marketplace Risk Calculator</h1>
       <form onSubmit={handleSubmit}>
@@ -157,6 +159,8 @@ const RiskCalculator = () => {
         </div>
       )}
     </div>
+     <Footer/>
+     </>
   );
 };
 
