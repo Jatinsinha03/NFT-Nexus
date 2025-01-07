@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
+import './Favourite.css'
+=======
 import Footer from '../../components/Footer'
+>>>>>>> 73cbbf78a6d8dd5120839cdff487a2c96821d515
 
 function Favorites() {
   const [favoriteNfts, setFavoriteNfts] = useState([]);
@@ -67,6 +71,34 @@ function Favorites() {
   }, []);
 
   return (
+<<<<<<< HEAD
+    <div className="Favorite-page">
+  <h1>Your Favorites</h1>
+  <div className="Favorite-list">
+    {nftDetails.length === 0 ? (
+      <p>Loading...</p>
+    ) : (
+      nftDetails.map((nft, index) => (
+        <div key={index} className="Favorite-item">
+          {/* Image Section */}
+          <div className="Favorite-image">
+            <img src={nft.image_url} alt={nft.collection} />
+          </div>
+          {/* Info Section */}
+          <div className="Favorite-info">
+            <h2>{nft.collection}</h2>
+            <p>{nft.description}</p>
+            <Link to={`/nft/${nft.contract_address}`}>
+              <button className="Favorite-button">View</button>
+            </Link>
+          </div>
+        </div>
+      ))
+    )}
+  </div>
+</div>
+
+=======
     <div className="favorites-page">
       <h1>Your Favorites</h1>
       <div className="favorites-list">
@@ -89,6 +121,7 @@ function Favorites() {
       </div>
       <Footer/>
     </div>
+>>>>>>> 73cbbf78a6d8dd5120839cdff487a2c96821d515
   );
 }
 
