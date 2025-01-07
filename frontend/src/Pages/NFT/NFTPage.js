@@ -3,6 +3,7 @@ import './NFTPage.css'
 import { useParams } from 'react-router-dom';
 import AnalyticsPage from '../Analytics/AnalyticsPage';
 import PricePrediction from '../PricePrediction/PricePrediction';
+import Footer from '../../components/Footer'
 
 function NFTPage() {
     const { contractAddress } = useParams();
@@ -64,6 +65,7 @@ function NFTPage() {
   
 
   return (
+    <>
     <div className="nft-page">
       <div className="banner">
         <img src={nftData.banner_image_url} alt="Banner" className="banner-img" />
@@ -106,6 +108,8 @@ function NFTPage() {
       <AnalyticsPage contractAddress={contractAddress}/>
       <PricePrediction blockchain={nftData.blockchain} contractAddress={contractAddress} chainId={1000}/>
     </div>
+    <Footer/>
+    </>
   );
 }
 

@@ -201,6 +201,27 @@
     font-size: 18px;
     margin: 0;
   }
+
+  .dropdown-walletAddress {
+    color: #ffa500; /* Orange text color */
+    font-size: 14px; /* Adjust size as needed */
+    padding: 10px; /* Adds some padding around the text */
+    background-color: #f4f4f4; /* Light grey background for contrast, optional */
+    border-radius: 4px; /* Rounded corners for the background */
+    margin: 1px; /* Adds space around the element */
+    font-family: 'Arial', sans-serif; /* Ensures consistent font styling */
+    overflow: hidden; /* Ensures no overflow */
+    text-overflow: ellipsis; /* Adds an ellipsis if the text is too long */
+    display: block; /* Ensures it takes the full width of its container */
+    width: 90%; /* Limit width to 90% of its container */
+    white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+.dropdown-walletAddress::before {
+    content: "Wallet Address: "; /* Adds label before the content */
+    font-weight: bold; /* Makes the label bold */
+}
+
   
   .stats-box p {
     font-size: 24px;
@@ -262,32 +283,38 @@
   /* Search Bar */
   .search-form {
     margin-top: 20px;
-  }
-  
-  .search-form input {
-    padding: 10px;
-    width: 250px;
+    display: flex; /* Ensures the input and button are in the same row */
+    align-items: center; /* Aligns items vertically in the middle */
+    width: 100%; /* Sets the form width to full width of its container */
+}
+
+.search-form input {
+    padding: 14.5px; /* Adjusted padding to be equal on all sides */
+    width: 90%; /* Adjusts width to be 90% of its container */
     border-radius: 5px;
+    font-size: 20px;
     border: 1px solid #ff7f50;
     background-color: #444;
     color: white;
-  }
-  
-  .search-form input::placeholder {
+    text-align: left; /* Ensures text within the input is aligned to the left */
+}
+
+.search-form input::placeholder {
     color: #ff7f50;
-  }
-  
-  .search-form button {
-    padding: 10px;
-    margin-left: 10px;
+    text-align: left; /* Ensures placeholder text is left-aligned */
+}
+
+.search-form button {
+    padding: 20px 20px; /* Slightly increased horizontal padding for better aesthetics */
+    margin-left: 10px; /* Optional: Adjusts button to visually connect with input */
     cursor: pointer;
     background-color: #ff7f50;
     color: white;
     border: none;
     border-radius: 5px;
     transition: all 0.3s ease;
-  }
-  
-  .search-form button:hover {
+}
+
+.search-form button:hover {
     background-color: #e46c40;
-  }
+}

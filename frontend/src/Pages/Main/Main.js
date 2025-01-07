@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './Main.css';  // Import your CSS
+import './Main.css';
+import Footer from '../../components/Footer'
 
 function Main() {
   const [userDetails, setUserDetails] = useState({ name: "", walletAddress: "" });
@@ -61,6 +62,10 @@ function Main() {
     }
   };
 
+  function formatWalletAddress(address) {
+    return address ? `${address.slice(0, 4)}...${address.slice(-2)}` : '';
+  } 
+
   useEffect(() => {
     showUserDetail();
   }, []);
@@ -71,6 +76,7 @@ function Main() {
   };
 
   return (
+    <>
     <div className="container">
   <div className="navbar">
     <div className="navbar-header">
@@ -87,24 +93,21 @@ function Main() {
         <div className="dropdown-content">
           <Link to="/favorite"><button>Show Favorites</button></Link>
           <Link to="/marketplacerisk"><button>Analyze Marketplace</button></Link>
-          <button onClick={handleLogout}>Logout</button>
+          <Link to="/topnfts"><button>Top NFTs</button></Link>
+          <p className='dropdown-walletAddress'>{formatWalletAddress(userDetails.walletAddress)}</p>
+          <button style={{backgroundColor:'#ff7f50', color:"#ffffff"}} onClick={handleLogout}>Logout</button>
         </div>
       )}
     </div>
   </div>
-
-  <div className="wallet-info">
-    <h2>Wallet Address: <span>{userDetails.walletAddress}</span></h2>
-  </div>
-
-
   {/* search bar */}
 
   <form className="search-form" onSubmit={handleSearch}>
     <input
       type="text"
-      placeholder="Search for NFTs..."
+      placeholder="Search for NFTs by contract address..."
       value={searchQuery}
+      className='searchBar'
       onChange={(e) => setSearchQuery(e.target.value)}
     />
     <button type="submit">Search</button>
@@ -132,7 +135,8 @@ function Main() {
 
 
 </div>
-
+<Footer/>
+</>
 
   );
 }
