@@ -1,0 +1,142 @@
+.bdy{
+    font-family: 'Outfit', sans-serif;
+    background-image: linear-gradient(85.2deg, rgba(33, 3, 40, 1) 7.5%, rgba(65, 5, 72, 1) 88.7%);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden; /* Prevent scrollbars if the background text extends */
+}
+
+#emailHelp-background {
+    position: absolute;
+    z-index: 1; /* Place it behind the login container */
+    font-size: 17rem; /* Increased font size for more prominence */
+    color: rgba(255, 255, 255, 0.05); /* Subtle, translucent color */
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the text using transform */
+    pointer-events: none; /* Prevent interference with clicks */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.login-container {
+    position: relative;
+    z-index: 10; /* Ensures it's above the background text */
+    backdrop-filter: blur(10px); /* Softer blur for a cleaner effect */
+    background: rgba(255, 255, 255, 0.2); /* Slightly higher opacity for readability */
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3); /* Subtle, soft shadow for depth */
+    width: 100%;
+    max-width: 420px; /* Slightly wider for better spacing */
+    text-align: center;
+    color: #fff;
+    overflow: hidden; /* Prevents excess content from showing out of bounds */
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+.login-container:hover {
+    transform: scale(1.02); /* Subtle zoom effect on hover */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Increased gap for better spacing between fields */
+}
+
+.login-title {
+    font-family: 'Outfit', sans-serif; /* Set Outfit font for headings */
+    font-size: 2.8rem; /* Increased title font size */
+    margin-bottom: 1.8rem; /* Increased margin for spacing */
+    font-weight: 700; /* Bold font for title */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Adds spacing between letters for emphasis */
+}
+
+.form-label {
+    font-family: 'Outfit', sans-serif; /* Set Outfit font for labels */
+    font-size: 1.4rem; /* Increased label font size */
+    font-weight: 700; /* Bold label */
+    color: #ccc; /* Slightly lighter color for the label */
+    align-self: flex-start;
+    margin-bottom: 0.5rem; /* Adds spacing between label and input */
+}
+
+.form-control {
+    margin-top: 5px;
+    width: 100%; /* Ensures input fields take up the full width of their container */
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Includes padding and border in the element's total width */
+}
+
+.form-control:focus {
+    border: 1px solid #007bff;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.btn-primary {
+    background: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    box-shadow: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    width: 100%; /* Matches the width of input fields */
+    box-sizing: border-box; /* Includes padding and border in the element's total width */
+}
+
+.btn-primary:hover {
+    background: #00ffff;
+    color: #1a1a1a;
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.8);
+}
+
+.mb-3 {
+    width: 100%; /* Ensures each form group takes full width */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Ensures consistent spacing between form elements */
+    width: 100%;
+}
+
+
+.signup-text {
+    margin-top: 1.5rem;
+    font-size: 1.1rem; /* Slightly increased font size for better readability */
+    color: #bbb; /* Subtle color for the signup text */
+}
+
+.signup-text a {
+    color: #00b4d8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.signup-text a:hover {
+    color: #007bff; /* Blue hover color for the link */
+    text-decoration: underline; /* Underline the link on hover */
+}

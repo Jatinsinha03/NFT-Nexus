@@ -18,7 +18,7 @@ const RiskCalculator = () => {
           params: {
             blockchain,
             name: marketplaceName,
-            time_range: '24h',
+            time_range: 'all',
             sort_by: 'name',
             sort_order: 'desc',
             limit: 30,
@@ -32,7 +32,7 @@ const RiskCalculator = () => {
           params: {
             blockchain,
             name: marketplaceName,
-            time_range: '24h',
+            time_range: 'all',
             sort_by: 'name',
             sort_order: 'desc',
             limit: 30,
@@ -46,7 +46,7 @@ const RiskCalculator = () => {
           params: {
             blockchain,
             name: marketplaceName,
-            time_range: '24h',
+            time_range: 'all',
             sort_by: 'name',
             sort_order: 'desc',
             limit: 30,

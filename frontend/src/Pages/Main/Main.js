@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate,Link } from 'react-router-dom'; 
+import { useNavigate, Link } from 'react-router-dom';
+import './Main.css';  // Import your CSS
 
 function Main() {
   const [userDetails, setUserDetails] = useState({ name: "", walletAddress: "" });
   const [searchQuery, setSearchQuery] = useState('');
-  let navigate = useNavigate()
+  const [dropdownOpen, setDropdownOpen] = useState(false); // Track dropdown state
   const [walletProfile, setWalletProfile] = useState({
     nftCount: 0,
     collectionCount: 0,
@@ -15,14 +16,16 @@ function Main() {
     }
   });
 
+  let navigate = useNavigate();
+
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen); // Toggle dropdown state
+
   const handleLogout = async (e) => {
     e.preventDefault();
     localStorage.removeItem('token');
-    navigate("/");    
+    navigate("/");
   };
 
-
-  // Fetch user details
   const showUserDetail = async () => {
     try {
       const response = await fetch("http://localhost:8000/api/auth/getuser", {
@@ -35,7 +38,6 @@ function Main() {
       const json = await response.json();
       setUserDetails({ name: json.name, walletAddress: json.walletAddress });
 
-      // Fetch wallet profile from UnleashNFTs API using CORS
       const unleashResponse = await fetch(
         `https://api.unleashnfts.com/api/v2/nft/wallet/profile?wallet=${json.walletAddress}&offset=0&limit=30`,
         {
@@ -48,7 +50,7 @@ function Main() {
       );
 
       const unleashData = await unleashResponse.json();
-      const walletData = unleashData.data[0]; // Access the first wallet profile
+      const walletData = unleashData.data[0];
       setWalletProfile({
         nftCount: walletData.nft_count,
         collectionCount: walletData.collection_count,
@@ -65,40 +67,73 @@ function Main() {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    
-        navigate(`/nft/${searchQuery}`); // Redirect to NFT page
-      
+    navigate(`/nft/${searchQuery}`);
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h1>Hello {userDetails.name}</h1>
-      <Link to="/favorite"><button>Show Favorites</button></Link>
-      <Link to="/marketplacerisk"><button>Analyze Marketplace</button></Link>
-      <button onClick={handleLogout}>Logout</button>
-      <h2>Wallet Address: {userDetails.walletAddress}</h2>
-      <h3>NFT Count: {walletProfile.nftCount}</h3>
-      <h3>Collection Count: {walletProfile.collectionCount}</h3>
-      <h3>Marketplace Rewards:</h3>
-      <ul>
-        <li>Blur: {walletProfile.marketplaceRewards.blur.toFixed(2)}</li>
-        <li>LooksRare: {walletProfile.marketplaceRewards.looks.toFixed(2)}</li>
-        <li>Rarible: {walletProfile.marketplaceRewards.rari.toFixed(2)}</li>
-      </ul>
-
-      {/* Search Bar */}
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Search for NFTs..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          style={{ padding: "10px", width: "250px" }}
-        />
-        <button type="submit" style={{ padding: "10px", marginLeft: "10px" }}>Search</button>
-      </form>
+    <div className="container">
+  <div className="navbar">
+    <div className="navbar-header">
+      <h1>
+        <div className="profile-name">{userDetails.name.charAt(0)}</div>
+        Hello {userDetails.name}
+      </h1>
     </div>
-    
+    <div className="dropdown">
+      <button className="dropdown-button" onClick={toggleDropdown}>
+        ▼
+      </button>
+      {dropdownOpen && (
+        <div className="dropdown-content">
+          <Link to="/favorite"><button>Show Favorites</button></Link>
+          <Link to="/marketplacerisk"><button>Analyze Marketplace</button></Link>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <div className="wallet-info">
+    <h2>Wallet Address: <span>{userDetails.walletAddress}</span></h2>
+  </div>
+
+
+  {/* search bar */}
+
+  <form className="search-form" onSubmit={handleSearch}>
+    <input
+      type="text"
+      placeholder="Search for NFTs..."
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+    />
+    <button type="submit">Search</button>
+  </form>
+
+  <div className="stats-row">
+    <div className="stats-box">
+      <h3>NFT Count</h3>
+      <p>{walletProfile.nftCount}</p>
+    </div>
+    <div className="stats-box">
+      <h3>Collection Count</h3>
+      <p>{walletProfile.collectionCount}</p>
+    </div>
+  </div>
+
+  <div className="center-box">
+    <h3>Marketplace Rewards</h3>
+    <ul>
+      <li>Blur: {walletProfile.marketplaceRewards.blur.toFixed(2)}</li>
+      <li>LooksRare: {walletProfile.marketplaceRewards.looks.toFixed(2)}</li>
+      <li>Rarible: {walletProfile.marketplaceRewards.rari.toFixed(2)}</li>
+    </ul>
+  </div>
+
+
+</div>
+
+
   );
 }
 
