@@ -1,31 +1,136 @@
-.nft-page {
-    text-align: center;
-    padding: 20px;
-  }
+/* Container */
+.nftpage-container {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(85.2deg, rgba(33, 3, 40, 1) 7.5%, rgba(65, 5, 72, 1) 88.7%);
+  color: white;
+  height: 100vh;
   
-  .banner {
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Banner */
+.nftpage-banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;  /* Make the banner occupy the full screen */
+}
+
+.nftpage-banner-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.nftpage-image {
+  z-index: 100;
+  position: absolute;
+  left: 50%;  /* Center the image horizontally */
+  top: auto;   /* Center the image vertically */
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  width: 150px;  /* Adjust size of the circular image */
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid white;  /* Border to give it a nice effect */
+  background-color: rgba(0, 0, 0, 0.6);  /* Make the background of the circular image opaque */
+}
+
+.nftpage-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Card */
+.nftpage-card {
+  background-color: rgba(0, 0, 0, 0.6); /* Transparent box */
+  border-radius: 15px;
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin-top: 100px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.nftpage-card-header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nftpage-card-header h1 {
+  font-size: 46px;
+  color: #ff7f50; /* Coral color */
+}
+
+.nftpage-favorite-btn {
+  padding: 10px 20px;
+  background-color: #ff7f50;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.nftpage-favorite-btn:hover {
+  background-color: #e46c40;
+}
+
+/* Description */
+.nftpage-description {
+  padding: 10px;
+  font-size: 22px;
+  color: white;
+  margin-top: 0px;
+}
+
+/* Links */
+.nftpage-links a {
+  margin: 10px;
+  color: #ff7f50;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nftpage-links a:hover {
+  color: white;
+}
+
+/* Image */
+.nftpage-image img {
+  max-width: 500px;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .nftpage-container {
+    padding: 10px;
   }
-  
-  .banner-img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+
+  .nftpage-card {
+    width: 90%;
+    padding: 15px;
   }
-  
-  .nft-info {
-    margin-bottom: 30px;
+
+  .nftpage-card-header h1 {
+    font-size: 22px;
   }
-  
-  .links a {
-    margin: 0 10px;
-    color: #007bff;
-    text-decoration: none;
+
+  .nftpage-favorite-btn {
+    font-size: 14px;
   }
-  
-  .nft-image img {
-    max-width: 500px;
-    margin: 0 auto;
-    display: block;
-  }
-  
+}
