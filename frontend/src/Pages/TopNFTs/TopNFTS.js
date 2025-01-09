@@ -24,7 +24,7 @@ const NFTTable = () => {
         sort_by: 'transaction_price',
         sort_order: 'desc',
         time_range: timeRange, // Use the selected time range
-        offset: page * 10,
+        offset: page,
         limit: 10,
         is_washtrade: true
       }

@@ -1,13 +1,14 @@
 /* General body styling */
 body {
     
-    color: #333;
+    
     margin: 0;
     padding: 20px;
 }
 
 /* Table and heading container */
 .topnft-container {
+    color: #333;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
