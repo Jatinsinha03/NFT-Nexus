@@ -1,0 +1,60 @@
+/* Container Styling */
+.PricePred-container {
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
+    padding: 20px;
+    width:80%;
+    margin: 100px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: white; /* White text color */
+  }
+  
+  /* Header Styling */
+  .PricePred-header {
+    font-size: 2rem;
+    color: #ff7f50; /* Coral color */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff7f50; /* Coral border */
+    padding-bottom: 10px;
+  }
+  
+  /* Row Styling */
+  .PricePred-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px; /* Space between boxes */
+  }
+  
+  /* Box Styling */
+  .PricePred-box {
+    flex: 1; /* Equal width for each box */
+    background-color: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border-radius: 50px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Box Content */
+  .PricePred-box h3 {
+    font-size: 1.2rem;
+    color: #ff7f50; /* Coral title */
+    margin-bottom: 8px;
+  }
+  
+  .PricePred-box p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9); /* Slightly lighter white */
+  }
+  
+  /* Hover Effects */
+  .PricePred-box:hover {
+    transform: translateY(-5px); /* Lift effect */
+    background-color: rgba(255, 255, 255, 0.2); /* Brighter on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Add shadow */
+  }
+  
