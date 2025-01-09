@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Footer from '../../components/Footer';
+import './RiskCalculator.css'
 
 const RiskCalculator = () => {
   // State to hold user inputs and API data
@@ -116,21 +116,27 @@ const RiskCalculator = () => {
   };
 
   return (
-    <>
-    <div>
-      <h1>NFT Marketplace Risk Calculator</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Blockchain: </label>
-          <select name="blockchain" value={blockchain} onChange={handleInputChange}>
-            <option value="ethereum">Ethereum</option>
-            <option value="polygon">Polygon</option>
-            {/* Add more blockchains as needed */}
-          </select>
-        </div>
-        <div>
-          <label>Marketplace Name: </label>
+    <div className="RiskCalc-container">
+      <h1 className="RiskCalc-header">NFT Marketplace Risk Calculator</h1>
+      <form className="RiskCalc-form" onSubmit={handleSubmit}>
+      <div className="RiskCalc-form-group">
+  <label className="RiskCalc-label">Blockchain:</label>
+  <select
+    className="RiskCalc-select"
+    name="blockchain"
+    value={blockchain}
+    onChange={handleInputChange}
+  >
+    <option value="ethereum">Ethereum</option>
+    <option value="polygon">Polygon</option>
+    {/* Add more blockchains as needed */}
+  </select>
+</div>
+
+        <div className="RiskCalc-form-group">
+          <label className="RiskCalc-label">Marketplace Name:</label>
           <input
+            className="RiskCalc-input"
             type="text"
             name="marketplaceName"
             value={marketplaceName}
@@ -138,30 +144,45 @@ const RiskCalculator = () => {
             required
           />
         </div>
-        <button type="submit">Get Risk Score</button>
+        <button className="RiskCalc-button" type="submit">
+          Get Risk Score
+        </button>
       </form>
-
+  
       {riskScore !== null && (
-        <div>
-          <h2>Risk Score: {riskScore.toFixed(2)}</h2>
-          <h3>Risk Level: {determineRiskLevel(riskScore)}</h3>
+        <div className="RiskCalc-score-container">
+          <h2 className="RiskCalc-score">Risk Score: {riskScore.toFixed(2)}</h2>
+          <h3 className="RiskCalc-risk-level">
+            Risk Level: {determineRiskLevel(riskScore)}
+          </h3>
         </div>
       )}
-
+  
       {marketplaceData && (
-        <div>
-          <h3>Marketplace Information:</h3>
-          <p>Marketplace: {marketplaceData.analytics.name}</p>
-          <p>Transactions: {marketplaceData.analytics.transactions}</p>
-          <p>Transfers: {marketplaceData.analytics.transfers}</p>
-          <p>Wash Trade Suspect Sales: {marketplaceData.washtrades.washtrade_suspect_sales}</p>
-          <p>Traders: {marketplaceData.traders.traders}</p>
+        <div className="RiskCalc-data">
+        <h3 className="RiskCalc-data-header">Marketplace Information</h3>
+        <div className="RiskCalc-data-grid">
+          <div className="RiskCalc-data-box">
+            <p><strong>Marketplace:</strong> {marketplaceData.analytics.name}</p>
+          </div>
+          <div className="RiskCalc-data-box">
+            <p><strong>Transactions:</strong> {marketplaceData.analytics.transactions}</p>
+          </div>
+          <div className="RiskCalc-data-box">
+            <p><strong>Transfers:</strong> {marketplaceData.analytics.transfers}</p>
+          </div>
+          <div className="RiskCalc-data-box">
+            <p><strong>Wash Trade Suspect Sales:</strong> {marketplaceData.washtrades.washtrade_suspect_sales}</p>
+          </div>
+          <div className="RiskCalc-data-box">
+            <p><strong>Traders:</strong> {marketplaceData.traders.traders}</p>
+          </div>
         </div>
+      </div>
+      
       )}
     </div>
-     <Footer/>
-     </>
   );
-};
+};  
 
 export default RiskCalculator;
