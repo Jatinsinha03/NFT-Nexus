@@ -1,0 +1,315 @@
+/* Container Styling */
+.RiskCalc-container {
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
+    padding: 20px;
+    width:80%;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+  }
+  
+  /* Header Styling */
+  .RiskCalc-header {
+    font-size: 2.5rem;
+    color: #ff7f50; /* Coral color */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff7f50;
+    padding-bottom: 10px;
+  }
+  
+  /* Form Styling */
+  .RiskCalc-form {
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .RiskCalc-form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .RiskCalc-label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #ff7f50; /* Coral color for labels */
+  }
+  
+/* Input Field Styling */
+.RiskCalc-input {
+    padding: 10px;
+    width: 98.4%;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Select Dropdown Styling */
+.RiskCalc-select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+  
+  .RiskCalc-input:focus,
+  .RiskCalc-select:focus {
+    outline: none;
+    border-color: #ff7f50;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+/* Button Styling */
+.RiskCalc-button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #ff7f50; /* Glowing color */
+    border-radius: 5px;
+    color: #ff7f50; /* Same color as border */
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: "Raleway", sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: inset 0px 0px 0.5em 0px #ff7f50, 0px 0px 0.5em 0px #ff7f50; /* Initial glow effect */
+    animation: border-flicker 2s linear infinite;
+  }
+  
+  .RiskCalc-button:hover {
+    background-color: #ff7f50; /* Filled with glow color */
+    color: white; /* Change text color on hover */
+    box-shadow: 0px 0px 1em 0.2em #ff7f50, inset 0px 0px 0.5em 0px #ff7f50; /* Intensified glow */
+    transform: translateY(-2px);
+  }
+  
+  .RiskCalc-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    filter: blur(1em);
+    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+    background: #ff7f50; /* Glowing background effect */
+    pointer-events: none;
+  }
+  
+  .RiskCalc-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: #ff7f50;
+    box-shadow: 0 0 .1em 0.2em #ff7f50;
+    transition: opacity 100ms linear;
+  }
+  
+  .RiskCalc-button:hover:before {
+    filter: blur(1.5em);
+    opacity: 1;
+  }
+  
+  .RiskCalc-button:hover:after {
+    opacity: 1;
+  }
+  
+  /* Animation Keyframes */
+  @keyframes border-flicker {
+    0% {
+      opacity: 0.1;
+    }
+    2% {
+      opacity: 1;
+    }
+    4% {
+      opacity: 0.1;
+    }
+    8% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  
+  
+/* Risk Score Container */
+.RiskCalc-score-container {
+    margin-top: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Hover Effect */
+  .RiskCalc-score-container:hover {
+    transform: scale(1.05); /* Slightly enlarges the container */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Adds a stronger shadow */
+    background-color: rgba(255, 255, 255, 0.2); /* Lightens the background color */
+  }
+  
+  
+  .RiskCalc-score {
+    font-size: 1.5rem;
+    color: #ff7f50;
+  }
+  
+  .RiskCalc-risk-level {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Marketplace Data */
+  .RiskCalc-data {
+    margin-top: 20px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .RiskCalc-data-header {
+    font-size: 1.2rem;
+    color: #ff7f50;
+    margin-bottom: 10px;
+  }
+
+  
+/* Main Container for Marketplace Data */
+.RiskCalc-data {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly darker transparent background */
+  color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Main Heading */
+.RiskCalc-data-header {
+  font-size: 1.8rem;
+  color: #ff7f50; /* Coral color */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff7f50;
+  padding-bottom: 10px;
+}
+
+/* Data Grid Layout */
+.RiskCalc-data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Individual Data Box */
+.RiskCalc-data-box {
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-align: left;
+}
+
+/* Hover Effect for Data Box */
+.RiskCalc-data-box:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Text Styling Inside Box */
+.RiskCalc-data-box p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.RiskCalc-data-box p strong {
+  color: #ff7f50; /* Coral color for labels */
+}
+
+/* Form Group Styling */
+.RiskCalc-form-group {
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+  }
+  
+  .RiskCalc-form-group:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Label Styling */
+  .RiskCalc-label {
+    font-size: 16px; /* Adjusted font size */
+    margin-bottom: 10px; /* Increased space below the label */
+    color: #ff7f50; /* Used the requested color */
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .RiskCalc-label:hover {
+    color: #e46c40; /* Slightly darker color on hover */
+  }
+  
+  /* Select Dropdown Styling */
+  .RiskCalc-select {
+    background-color: #2c2c2c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 15px; /* Adjusted padding */
+    font-size: 18px; /* Adjusted font size */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Select dropdown hover effect */
+  .RiskCalc-select:hover {
+    background-color: #444;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+  }
+  
+  /* Option Styling */
+  .RiskCalc-select option {
+    background-color: #444;
+    color: white;
+    padding: 12px 15px; /* Adjusted padding */
+    font-size: 18px; /* Adjusted font size */
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Option hover effect */
+  .RiskCalc-select option:hover {
+    background-color: #ff7f50; /* Highlight color */
+    color: white;
+  }
