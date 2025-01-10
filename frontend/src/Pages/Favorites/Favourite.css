@@ -55,7 +55,7 @@
     margin-bottom: 20px;
   }
   
-  .Favorite-button {
+  .Favorite-button, .Remove-button {
     background-color: #ff7f50;
     color: #ffffff;
     border: none;
@@ -68,6 +68,10 @@
     margin-top: 10px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     align-self: flex-start; /* Align button to the bottom-left */
+  }
+
+  .Remove-button{
+    margin-left: 10px;
   }
   
   /* Hover effect for button */

@@ -5,6 +5,7 @@ import Footer from '../../components/Footer'
 /* global gsap, ScrollTrigger */
 
 import { Link } from "react-router-dom";
+import NavBar from "../../components/NavBar";
 
 function LandingPage() {
   useEffect(() => {
@@ -75,6 +76,8 @@ function LandingPage() {
   }, []);
 
   return (
+    <>
+    <NavBar/>
     <div className="landing-container">
       {/* Hero Section */}
       <section className="hero-section">
@@ -167,6 +170,7 @@ function LandingPage() {
 
       <Footer/>
     </div>
+    </>
   );
 }
 

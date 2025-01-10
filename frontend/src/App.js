@@ -27,7 +27,6 @@ function App() {
           <Route path="/nft/:contractAddress" element={<NFTPage />} />
           <Route path="/marketplacerisk" element={<RiskCalculator/>} />
           <Route path="/topnfts" element={<TopNFTS/>} />
-
         </Routes>
       
     </Router>

@@ -3,6 +3,8 @@ import axios from 'axios';
 import Loader from '../../components/Loader';
 import './TopNFTs.css';
 import Footer from '../../components/Footer';
+import NavBar from '../../components/NavBar';
+
 
 const NFTTable = () => {
   const [nfts, setNfts] = useState([]);
@@ -45,10 +47,12 @@ const NFTTable = () => {
 
   return (
     <>
+    <NavBar/>
     <div>
       {isLoading ? (
         <Loader />
       ) : (
+        
         <div className="topnft-container">
           <h1 className="topnft-heading">Top NFTs in last {timeRange}</h1>
           <div>

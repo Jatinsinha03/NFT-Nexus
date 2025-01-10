@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Main.css';
 import Footer from '../../components/Footer'
+import NavBar from '../../components/NavBar';
 
 function Main() {
   const [userDetails, setUserDetails] = useState({ name: "", walletAddress: "" });
   const [searchQuery, setSearchQuery] = useState('');
-  const [dropdownOpen, setDropdownOpen] = useState(false); // Track dropdown state
   const [walletProfile, setWalletProfile] = useState({
     nftCount: 0,
     collectionCount: 0,
@@ -18,14 +18,6 @@ function Main() {
   });
 
   let navigate = useNavigate();
-
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen); // Toggle dropdown state
-
-  const handleLogout = async (e) => {
-    e.preventDefault();
-    localStorage.removeItem('token');
-    navigate("/");
-  };
 
   const showUserDetail = async () => {
     try {
@@ -77,29 +69,8 @@ function Main() {
 
   return (
     <>
+    <NavBar/>
     <div className="container">
-  <div className="navbar">
-    <div className="navbar-header">
-      <h1>
-        <div className="profile-name">{userDetails.name.charAt(0)}</div>
-        Hello {userDetails.name}
-      </h1>
-    </div>
-    <div className="dropdown">
-      <button className="dropdown-button" onClick={toggleDropdown}>
-        ▼
-      </button>
-      {dropdownOpen && (
-        <div className="dropdown-content">
-          <Link to="/favorite"><button>Show Favorites</button></Link>
-          <Link to="/marketplacerisk"><button>Analyze Marketplace</button></Link>
-          <Link to="/topnfts"><button>Top NFTs</button></Link>
-          <p className='dropdown-walletAddress'>{formatWalletAddress(userDetails.walletAddress)}</p>
-          <button style={{backgroundColor:'#ff7f50', color:"#ffffff"}} onClick={handleLogout}>Logout</button>
-        </div>
-      )}
-    </div>
-  </div>
   {/* search bar */}
 
   <form className="search-form" onSubmit={handleSearch}>

@@ -87,6 +87,11 @@
   background-color: #e46c40;
 }
 
+.nftpage-investment-risk{
+  margin-left: 10px;
+  color: #ff7f50;
+}
+
 /* Description */
 .nftpage-description {
   padding: 10px;

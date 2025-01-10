@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './PricePrediction.css'
+import NavBar from '../../components/NavBar';
 
 const PricePrediction = ({ contractAddress, blockchain, chainId }) => {
   const [priceData, setPriceData] = useState(null);
@@ -47,6 +48,8 @@ const PricePrediction = ({ contractAddress, blockchain, chainId }) => {
   } = priceData;
 
   return (
+    <>
+    
     <div className="PricePred-container">
       <h2 className="PricePred-header">Price Prediction</h2>
       
@@ -80,6 +83,7 @@ const PricePrediction = ({ contractAddress, blockchain, chainId }) => {
         </div>
       </div>
     </div>
+    </>
   );
   
 };

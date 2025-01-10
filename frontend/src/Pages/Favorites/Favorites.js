@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Favourite.css'
 import Footer from '../../components/Footer'
+import NavBar from '../../components/NavBar';
 
 function Favorites() {
   const [favoriteNfts, setFavoriteNfts] = useState([]);
@@ -22,7 +23,6 @@ function Favorites() {
         }
       );
       const finalResponse = await response.json();
-      console.log("NFT details fetched:", finalResponse.data[0]);
       return finalResponse.data[0]; // Assuming the first item is relevant data
     } catch (error) {
       console.error("Error fetching NFT collection data:", error);
@@ -67,8 +67,37 @@ function Favorites() {
     fetchFavoritesWithDetails();
   }, []);
 
+  const handleRemove = async (contractAddress) => {
+    try {
+        const response = await fetch("http://localhost:8000/api/nft/removeFavorite", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": localStorage.getItem('token'),
+            },
+            body: JSON.stringify({
+                contractAddress: contractAddress,
+            }),
+        });
+
+        const json = await response.json();
+
+        if (response.ok) {
+            alert("Removed from favorites");
+            // Update the nftDetails state to filter out the removed NFT
+            setNftDetails(prevDetails => prevDetails.filter(nft => nft.contract_address !== contractAddress));
+        } else {
+            alert(`Failed to remove from favorites: ${json.message || "Unknown error"}`);
+        }
+    } catch (error) {
+        alert("An error occurred while removing from favorites.");
+    }
+};
+
+
   return (
     <>
+      <NavBar/>
     <div className="Favorite-page">
   <h1>Your Favorites</h1>
   <div className="Favorite-list">
@@ -88,6 +117,7 @@ function Favorites() {
             <Link to={`/nft/${nft.contract_address}`}>
               <button className="Favorite-button">View</button>
             </Link>
+              <button onClick={() => handleRemove(nft.contract_address)} className="Remove-button">Remove</button>
           </div>
         </div>
       ))

@@ -3,44 +3,129 @@ import './NFTPage.css';
 import { useParams } from 'react-router-dom';
 import AnalyticsPage from '../Analytics/AnalyticsPage';
 import PricePrediction from '../PricePrediction/PricePrediction';
+import Footer from '../../components/Footer'
+import NavBar from '../../components/NavBar'
+import Loader from '../../components/Loader'
 
 function NFTPage() {
     const { contractAddress } = useParams();
     const [nftData, setNftData] = useState(null);
+    const [profileData, setProfileData] = useState(null);
+    const [isFavorite, setIsFavorite] = useState(false);
+    const [prediction, setPrediction] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const fetchNftCollectionData = async () => {
+    // Fetch metadata and profile data
+    const fetchNftData = async () => {
         try {
-            const response = await fetch(`https://api.unleashnfts.com/api/v2/nft/collection/metadata?sort_order=desc&offset=0&limit=30&contract_address=${contractAddress}`,
+            const metadataResponse = await fetch(
+                `https://api.unleashnfts.com/api/v2/nft/collection/metadata?sort_order=desc&offset=0&limit=30&contract_address=${contractAddress}`,
                 {
                     method: "GET",
                     headers: {
-                        "accept": 'application/json',
-                        'x-api-key': '316dd88ae8840897e1f61160265d1a3f', // Your API key
+                        "accept": "application/json",
+                        "x-api-key": "316dd88ae8840897e1f61160265d1a3f",
                     },
                 }
             );
-            const finalResponse = await response.json();
-            setNftData(finalResponse.data[0]); // Assuming the first item is the relevant data
+
+            const profileResponse = await fetch(
+                `https://api.unleashnfts.com/api/v2/nft/collection/profile?blockchain=ethereum&contract_address=${contractAddress}&time_range=all&offset=0&limit=30&sort_by=collection_score&sort_order=desc`,
+                {
+                    method: "GET",
+                    headers: {
+                        "accept": "application/json",
+                        "x-api-key": "316dd88ae8840897e1f61160265d1a3f",
+                    },
+                }
+            );
+
+            const metadataData = await metadataResponse.json();
+            const profileData = await profileResponse.json();
+
+            const nft = metadataData.data[0] || null;
+            const profile = profileData.data[0] || null;
+            console.log(profile)
+
+            setNftData(nft);
+            setProfileData(profile);
+
+            if (nft) {
+                fetchFavorites(nft);
+            }
+
+            if (profile) {
+                handlePrediction(profile);
+            }
+
+            setLoading(false);
         } catch (error) {
-            alert('Error fetching NFT collection data:', error);
+            console.error("Error fetching NFT data:", error);
+            setLoading(false);
         }
     };
 
-    useEffect(() => {
-        fetchNftCollectionData();
-    }, [contractAddress]);
+    // Fetch favorites
+    const fetchFavorites = async (nft) => {
+        try {
+            const response = await fetch("http://localhost:8000/api/nft/getFavorites", {
+                method: "GET",
+                headers: {
+                    "accept": "application/json",
+                    "auth-token": localStorage.getItem("token"),
+                },
+            });
 
-    if (!nftData) {
-        return <div>Loading...</div>;
-    }
+            const data = await response.json();
 
+            if (Array.isArray(data.favorites)) {
+                const isFavoriteItem = data.favorites.some(
+                    (fav) => fav.contractAddress.toUpperCase() === nft.contract_address.toUpperCase()
+                );
+                setIsFavorite(isFavoriteItem);
+            }
+        } catch (error) {
+            console.error("Error fetching favorites:", error);
+        }
+    };
+
+    // Predict risk category
+    const handlePrediction = async (profile) => {
+        const features = {
+            loss_making_trades: profile.loss_making_trades,
+            avg_loss_making_trades: profile.avg_loss_making_trades,
+            loss_making_trades_percentage: profile.loss_making_trades_percentage,
+            loss_making_volume: profile.loss_making_volume,
+            diamond_hands: profile.diamond_hands,
+            liquidity_score: profile.liquidity_score,
+        };
+
+        try {
+            const response = await fetch("http://127.0.0.1:3030/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(features),
+            });
+
+            const result = await response.json();
+            setPrediction(result.risk_category || "Unknown");
+        } catch (error) {
+            console.error("Error predicting risk category:", error);
+        }
+    };
+
+    // Add to favorites
     const handleFavorite = async () => {
+        if (isFavorite) return;
+
         try {
             const response = await fetch("http://localhost:8000/api/nft/addToFavorite", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "auth-token": localStorage.getItem('token'),
+                    "auth-token": localStorage.getItem("token"),
                 },
                 body: JSON.stringify({
                     blockchain: nftData.blockchain,
@@ -49,33 +134,49 @@ function NFTPage() {
                 }),
             });
 
-            const json = await response.json();
-
             if (response.ok) {
-                alert("Added to favorites");
+                alert("Added to favorites!");
+                setIsFavorite(true);
             } else {
+                const json = await response.json();
                 alert(`Failed to add to favorites: ${json.message || "Unknown error"}`);
             }
         } catch (error) {
-            alert("An error occurred while adding to favorites.");
+            console.error("Error adding to favorites:", error);
         }
     };
 
+    useEffect(() => {
+        fetchNftData();
+    }, [contractAddress]);
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+
+
     return (
       <>
+        <NavBar/>
         <div className="nftpage-container">
             <div className="nftpage-banner">
-  <img src={nftData.banner_image_url} alt="Banner" className="nftpage-banner-img" />
-  <div className="nftpage-image">
-    <img src={nftData.image_url} alt="NFT" className="nftpage-image-img" />
-  </div>
-</div>
+                <img src={nftData.banner_image_url} alt="Banner" className="nftpage-banner-img" />
+                <div className="nftpage-image">
+                    <img src={nftData.image_url} alt="NFT" className="nftpage-image-img" />
+                </div>
+            </div>
 
             <div className="nftpage-card">
                 <div className="nftpage-card-header">
                     <h1>{nftData.collection}</h1>
-                    <button onClick={handleFavorite} className="nftpage-favorite-btn">Add to Favorite</button>
+                    
+                    <button onClick={handleFavorite} disabled={isFavorite} className="nftpage-favorite-btn">{isFavorite ? 'Favorited' : 'Add to Favorite'}</button>
                 </div>
+                
+                <h2 className='nftpage-investment-risk'>Investment Risk : {prediction} </h2>
+
+                
                 <p className="nftpage-description">{nftData.description}</p>
                 <div className="nftpage-links">
                     {nftData.external_url && (
@@ -104,12 +205,15 @@ function NFTPage() {
                         </a>
                     )}
                 </div>
+
             </div>
+            
            
             <AnalyticsPage contractAddress={contractAddress} />
             <PricePrediction blockchain={nftData.blockchain} contractAddress={contractAddress} chainId={1000} />
+            <Footer/>
         </div>
-            </>
+      </>
     );
 }
 

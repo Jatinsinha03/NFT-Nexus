@@ -47,4 +47,28 @@ router.get('/getFavorites', fetchUser, async (req, res) => {
     }
 });
 
+router.delete('/removeFavorite', fetchUser, async (req, res) => {
+    try {
+        const { contractAddress } = req.body;
+
+        // Validate incoming data
+        if (!contractAddress) {
+            return res.status(400).json({ error: 'Missing contract address' });
+        }
+
+        // Find and remove the NFT from the database
+        const removedNFT = await NFT.findOneAndDelete({ user: req.user.id, contractAddress });
+
+        if (!removedNFT) {
+            return res.status(404).json({ message: 'NFT not found in favorites' });
+        }
+
+        res.status(200).json({ message: 'NFT removed from favorites successfully', nft: removedNFT });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+
 module.exports = router;
