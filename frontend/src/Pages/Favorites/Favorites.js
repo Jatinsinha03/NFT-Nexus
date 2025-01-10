@@ -35,7 +35,7 @@ function Favorites() {
     const fetchFavoritesWithDetails = async () => {
       try {
         // Fetch user favorites
-        const call = await fetch("http://localhost:8000/api/nft/getFavorites", {
+        const call = await fetch("https://nft-nexus-backend.onrender.com/api/nft/getFavorites", {
           method: "GET",
           headers: {
             "accept": "application/json",
@@ -70,7 +70,7 @@ function Favorites() {
 
   const handleRemove = async (contractAddress) => {
     try {
-        const response = await fetch("http://localhost:8000/api/nft/removeFavorite", {
+        const response = await fetch("https://nft-nexus-backend.onrender.com/api/nft/removeFavorite", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
