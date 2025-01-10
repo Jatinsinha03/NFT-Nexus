@@ -8,8 +8,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 # Load the decision tree model and scaler
-dt_model = joblib.load('model/final_model_randomForest.pkl')
-scaler = joblib.load('model/scaler.pkl')
+dt_model = joblib.load('./model/final_model_randomForest.pkl')
+scaler = joblib.load('./model/scaler.pkl')
 
 # Home route for testing
 @app.route('/')
