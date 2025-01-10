@@ -151,7 +151,7 @@ function NFTPage() {
     }, [contractAddress]);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return (<Loader/>);
     }
 
 
