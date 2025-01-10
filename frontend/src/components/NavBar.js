@@ -10,7 +10,7 @@ function NavBar() {
 
     const showUserDetail = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/auth/getuser", {
+            const response = await fetch("https://nft-nexus-backend.onrender.com/api/auth/getuser", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
