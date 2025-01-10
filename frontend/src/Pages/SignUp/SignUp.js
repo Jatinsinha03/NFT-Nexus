@@ -32,7 +32,7 @@ export default function SignUp(props) {
     if (!walletAddress) {
       return alert('Wallet address is required', 'warning');
     }
-    const response = await fetch("http://localhost:8000/api/auth/createuser", {
+    const response = await fetch("https://nft-nexus-backend.onrender.com/api/auth/createuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

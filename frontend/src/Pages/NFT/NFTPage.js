@@ -68,7 +68,7 @@ function NFTPage() {
     // Fetch favorites
     const fetchFavorites = async (nft) => {
         try {
-            const response = await fetch("http://localhost:8000/api/nft/getFavorites", {
+            const response = await fetch("https://nft-nexus-backend.onrender.com/api/nft/getFavorites", {
                 method: "GET",
                 headers: {
                     "accept": "application/json",
@@ -101,7 +101,7 @@ function NFTPage() {
         };
 
         try {
-            const response = await fetch("http://127.0.0.1:3030/predict", {
+            const response = await fetch("https://nft-nexus-g7co.onrender.com/predict", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -121,7 +121,7 @@ function NFTPage() {
         if (isFavorite) return;
 
         try {
-            const response = await fetch("http://localhost:8000/api/nft/addToFavorite", {
+            const response = await fetch("https://nft-nexus-backend.onrender.com/api/nft/addToFavorite", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
