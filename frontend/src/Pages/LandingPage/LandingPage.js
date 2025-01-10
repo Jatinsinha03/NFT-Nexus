@@ -22,7 +22,7 @@ function LandingPage() {
     gsap.to(".about-section", {
       opacity: 1,
       y: 0,
-      duration: 1.5,
+      duration: 3.5,
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".about-section",
@@ -36,7 +36,7 @@ function LandingPage() {
     gsap.to(".features-section", {
       opacity: 1,
       x: 0,
-      duration: 1.5,
+      duration: 3.5,
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".features-section",
@@ -50,7 +50,7 @@ function LandingPage() {
     gsap.to(".how-it-works-section", {
       opacity: 1,
       x: 0,
-      duration: 1.5,
+      duration: 3.5,
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".how-it-works-section",
@@ -122,51 +122,127 @@ function LandingPage() {
         platform. From real-time market updates to historical data analysis, we've got you covered.
       </p>
     </div>
+    <div className="about-card">
+      <h3 className="card-heading">AI-Powered Risk Analysis</h3>
+      <p className="about-content">
+        NFT Nexus integrates an AI model that evaluates the risk levels of NFT collections. It categorizes investments into
+        "very low," "low," "mid," "high," and "very high" risk levels, enabling users to make informed decisions on whether to invest.
+      </p>
+    </div>
   </div>
   <button className="cta-button learn-more-button">Learn More</button>
 </section>
 
-
-      {/* Features Section */}
-      <section className="features-section">
-        <h2 className="features-heading">Why Choose NFT Nexus?</h2>
-        <div className="features-list">
-          <div className="feature-item">
-            <h3>NFT Collection Overview</h3>
-            <p>Track and analyze your favorite collections with ease.</p>
-          </div>
-          <div className="feature-item">
-            <h3>Advanced Analytics</h3>
-            <p>Monitor volume trends, transaction patterns, and key metrics.</p>
-          </div>
-          <div className="feature-item">
-            <h3>Price Estimation</h3>
-            <p>Get accurate price predictions for NFTs across collections.</p>
-          </div>
-          <div className="feature-item">
-            <h3>Wallet Insights</h3>
-            <p>Explore wallet profiles, risk analysis, and wash trading detection.</p>
-          </div>
-          <div className="feature-item">
-            <h3>Real-Time Search</h3>
-            <p>Quickly search and access detailed NFT metadata and collections.</p>
-          </div>
-          <div className="feature-item">
-            <h3>Market Analysis</h3>
-            <p>Get a risk score for different marketplaces to make informed trading decisions.</p>
-          </div>
-        </div>
-      </section>
+{/* Features Section */}
+<section className="features-section">
+  <h2 className="features-heading">Why Choose NFT Nexus?</h2>
+  <div className="features-list">
+    <div className="feature-item">
+      <h3>NFT Collection Insights</h3>
+      <p>Search and analyze NFT collections with real-time metadata and insights.</p>
+    </div>
+    <div className="feature-item">
+      <h3>Advanced Analytics</h3>
+      <p>Monitor volume trends, transaction patterns, and key metrics.</p>
+    </div>
+    <div className="feature-item">
+      <h3>Price Estimation</h3>
+      <p>Get accurate price predictions for NFTs across collections.</p>
+    </div>
+    <div className="feature-item">
+      <h3 className="Landh">Wallet Insights</h3>
+      <p>Explore wallet profiles, risk analysis, and wash trading detection.</p>
+    </div>
+    <div className="feature-item">
+      <h3>AI Risk Analysis</h3>
+      <p>Evaluate NFT collections with our advanced AI model, offering cutting-edge risk insights to guide smarter investment strategies.</p>
+    </div>
+    <div className="feature-item">
+      <h3>Market Analysis</h3>
+      <p>Get a risk score for different marketplaces to make informed trading decisions.</p>
+    </div>
+  </div>
+</section>
 
       {/* How It Works Section */}
       <section className="how-it-works-section">
-        <h2 className="how-heading">How Does NFT Nexus Work?</h2>
-        <ol className="how-steps">
-          <li>Step 1: Connect your wallet.</li>
-          <li>Step 2: Search for NFTs or collections.</li>
-          <li>Step 3: Explore insights and trade confidently.</li>
-        </ol>
-      </section>
+  <h2 className="how-heading">How Does NFT Nexus Work?</h2>
+  <div className="how-cards">
+    {/* Card 1 */}
+    <div className="how-card">
+      <div className="card-front">
+      <h3 className="Landh">Search for Collections</h3>
+      </div>
+      <div className="card-back">
+        <p>
+          After logging in or creating an account, use the search bar to enter the contract address of an NFT collection and gain detailed insights.
+        </p>
+      </div>
+    </div>
+
+    {/* Card 2 */}
+<div className="how-card">
+  <div className="card-front">
+  <h3 className="Landh">Top NFT Collections</h3>
+  </div>
+  <div className="card-back">
+    <p>
+      Explore the top NFT collections on the blockchain, gaining insights into trending projects and valuable assets.
+    </p>
+  </div>
+</div>
+
+
+    {/* Card 3 */}
+    <div className="how-card">
+      <div className="card-front">
+      <h3 className="Landh">Favorites</h3>
+      </div>
+      <div className="card-back">
+        <p>
+          Add or remove collections to your favorites for quick access and effortless management.
+        </p>
+      </div>
+    </div>
+
+    {/* Card 4 */}
+    <div className="how-card">
+      <div className="card-front">
+      <h3 className="Landh">Risk Analysis</h3>
+      </div>
+      <div className="card-back">
+        <p>
+          Enter a contract address to fetch metadata, which is analyzed by our advanced AI model to calculate a comprehensive risk score.
+        </p>
+      </div>
+    </div>
+
+    {/* Card 5 */}
+    <div className="how-card">
+      <div className="card-front">
+      <h3 className="Landh">Marketplace Analysis</h3>
+      </div>
+      <div className="card-back">
+        <p>
+          Evaluate scores for various marketplaces like OpenSea and Tofu to choose the best trading platform.
+        </p>
+      </div>
+    </div>
+
+    {/* Card 6 */}
+    <div className="how-card">
+      <div className="card-front">
+      <h3>Your Dashboard</h3>
+      </div>
+      <div className="card-back">
+        <p>
+          Access a comprehensive overview of your NFTs, collection count, marketplace rewards, and other essential data.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <Footer/>
     </div>

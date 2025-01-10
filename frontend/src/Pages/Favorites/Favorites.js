@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Favourite.css'
 import Footer from '../../components/Footer'
 import NavBar from '../../components/NavBar';
+import Loader from '../../components/Loader';
 
 function Favorites() {
   const [favoriteNfts, setFavoriteNfts] = useState([]);
@@ -102,7 +103,7 @@ function Favorites() {
   <h1>Your Favorites</h1>
   <div className="Favorite-list">
     {nftDetails.length === 0 ? (
-      <p>Loading...</p>
+      <Loader/>
     ) : (
       nftDetails.map((nft, index) => (
         <div key={index} className="Favorite-item">

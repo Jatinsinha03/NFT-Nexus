@@ -34,7 +34,7 @@ body {
   font-weight: 700;  /* Bold text */
   text-align: center;
   text-shadow: 0 4px 10px rgba(0, 255, 255, 0.5);
-  animation: fadeIn 2s ease-in-out;
+  animation: fadeIn .4s ease-in-out;
   margin-top: 0;
 }
 
@@ -44,14 +44,14 @@ body {
   margin-bottom: 40px;
   font-weight: 300;
   text-align: center;
-  animation: fadeIn 2s ease-in-out 0.5s; /* 0.5s delay for smooth sequencing */
+  animation: fadeIn .8s ease-in-out 0.2s; /* 0.5s delay for smooth sequencing */
 }
 
 .hero-cta {
   display: flex;
   justify-content: center;
   gap: 20px;
-  animation: fadeIn 2s ease-in-out 1s; /* 1s delay for buttons */
+  animation: fadeIn .8s ease-in-out .2s; /* 1s delay for buttons */
 }
 
 .cta-button {
@@ -62,7 +62,7 @@ body {
   cursor: pointer;
   transition: background 0.3s, box-shadow 0.3s;
   opacity: 0; /* Start hidden for fade-in effect */
-  animation: fadeIn 2s ease-in-out 1.5s forwards; /* Fade in after 1.5s delay */
+  animation: fadeIn .4s ease-in-out .4s forwards; /* Fade in after 1.5s delay */
 }
 
 /* Explore Button */
@@ -119,7 +119,7 @@ body {
   margin-top: 30px; /* Added space */
   text-align: center;
   opacity: 0;
-  animation: fadeIn 2s ease-in-out 2s forwards; /* Added fade-in effect */
+  animation: fadeIn .8s ease-in-out .4s forwards; /* Added fade-in effect */
 }
 
 .powered-by-text {
@@ -266,30 +266,98 @@ body {
 
 /* How It Works Section */
 .how-it-works-section {
-  height:100vh;
+  height: auto;
   padding: 80px 20px;
   text-align: center;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   margin: 40px 0;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Added subtle shadow for depth */
 }
 
+/* Heading Styling */
 .how-heading {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 2.5rem; /* Increased heading size */
+  margin-bottom: 50px; /* Increased space below heading */
   color: #e4e4e4;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.how-steps {
-  list-style: none;
-  padding: 0;
+/* Cards Container */
+.how-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns for the cards */
+  gap: 30px; /* Increased gap between cards */
+}
+
+/* Card Styling */
+.how-card {
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 270px;
+  height: 180px;
+  perspective: 1000px;
+}
+
+/* Card Front and Back Styling */
+.how-card .card-front,
+.how-card .card-back {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Transparent background */
   color: #cfcfcf;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
 }
 
-.how-steps li {
-  margin-bottom: 10px;
-  font-size: 1rem;
+/* Card Front Specific Styling */
+.how-card .card-front {
+  transform: rotateY(0);
+  padding: 20px; /* Added padding for consistent spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem; /* Slightly larger font for readability */
 }
+
+/* Card Back Specific Styling */
+.how-card .card-back {
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Hover Effect for Card Front and Back */
+.how-card:hover .card-front {
+  transform: rotateY(-180deg);
+}
+
+.how-card:hover .card-back {
+  transform: rotateY(0);
+}
+
+
+/* Typography adjustments for better readability */
+.how-card h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.how-card p {
+  font-size: 1rem;
+  color: #e0e0e0;
+  line-height: 1.5;
+}
+
 /* Footer Section */
 /* Footer Section */
 .footer-section {
