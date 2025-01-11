@@ -175,7 +175,7 @@ function NFTPage() {
                 </div>
                 
                 <h2 className='nftpage-investment-risk'>Investment Risk : {prediction} </h2>
-
+                <p className='nftpage-investment-risk-desc'>(Risk is determined by our advanced AI model using a comprehensive analysis of the collection's profile, which includes metrics such as loss-making trades, average loss-making trades, trade percentage, loss-making volume, diamond hands, and liquidity score.)</p>
                 
                 <p className="nftpage-description">{nftData.description}</p>
                 <div className="nftpage-links">

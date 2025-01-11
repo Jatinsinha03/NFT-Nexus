@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Web3 from 'web3';
 import './SignUp.css'; // Import the new CSS file
 
@@ -127,7 +127,7 @@ export default function SignUp(props) {
           </button>
           <button type="submit" className="signup-btn-primary">Sign Up</button>
           <p className="signup-text">
-            Already have an account? <a href="/login">Log in</a>
+            Already have an account? <Link to="/login">Log in</Link>
           </p>
         </form>
       </div>

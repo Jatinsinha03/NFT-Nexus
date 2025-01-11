@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import './Login.css';
 
 export default function Login(props) {
@@ -85,7 +85,7 @@ export default function Login(props) {
                     </div>
                     <button type="submit" className="btn btn-primary">Login</button>
                     <p className="signup-text">
-                        Don't have an account? <a href="/signup">Create Account</a>
+                        Don't have an account? <Link to="/signup">Create Account</Link>
                     </p>
                 </form>
             </div>
