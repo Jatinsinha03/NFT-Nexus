@@ -94,6 +94,11 @@ function NavBar() {
                             Top NFTs
                         </button>
                     </Link>
+                    <Link to="/profile">
+                        <button style={isActive('/profile') ? { backgroundColor: 'green', color: "#ffffff" } : null}>
+                            Profile
+                        </button>
+                    </Link>
                     <p className='dropdown-walletAddress'>{formatWalletAddress(userDetails.walletAddress)}</p>
                     <button style={{ backgroundColor: '#ff7f50', color: "#ffffff" }} onClick={handleLogout}>
                         Logout
