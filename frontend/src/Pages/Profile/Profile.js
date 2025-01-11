@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from "@mui/material";
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/NavBar';
+import './Profile.css';
 
 const Profile = () => {
   const [userDetails, setUserDetails] = useState({ name: "", walletAddress: "" });
@@ -40,31 +41,23 @@ const Profile = () => {
 
     // Fetch NFT portfolio
     const fetchNftPortfolio = async () => {
-        try {
-          const response = await axios.get(   
-            `https://api.unleashnfts.com/api/v2/wallet/balance/nft?wallet=${userDetails.walletAddress}&blockchain=ethereum&time_range=all&offset=${nftPage}&limit=30`,
-            {
-              headers: {
-                accept: "application/json",
-                "x-api-key": "316dd88ae8840897e1f61160265d1a3f", // Ensure API key is correct
-              },
-            }
-          );
-          
-          // Check if data exists
-          if (response.data.data) {
-            setNftPortfolio(response.data.data); // Update NFT portfolio state
-          } else {
-            console.log("No NFTs found for this page.");
+      try {
+        const response = await axios.get(
+          `https://api.unleashnfts.com/api/v2/wallet/balance/nft?wallet=${userDetails.walletAddress}&blockchain=ethereum&time_range=all&offset=${nftPage}&limit=30`,
+          {
+            headers: {
+              accept: "application/json",
+              "x-api-key": "316dd88ae8840897e1f61160265d1a3f",
+            },
           }
-        } catch (error) {
-          console.error("Error fetching NFT portfolio: ", error.response || error);
-          if (error.response) {
-            console.error("API Response Error: ", error.response.data);
-          }
+        );
+        if (response.data.data) {
+          setNftPortfolio(response.data.data);
         }
-      };
-      
+      } catch (error) {
+        console.error("Error fetching NFT portfolio: ", error.response || error);
+      }
+    };
 
     fetchUserDetails();
     if (userDetails.walletAddress) {
@@ -75,68 +68,74 @@ const Profile = () => {
 
   return (
     <>
-    <NavBar/>
-    <div style={{ padding: "20px" }}>
-      <h2>User Profile</h2>
-      <div>
-        <p>Name: {userDetails.name}</p>
-        <p>Wallet Address: {userDetails.walletAddress}</p>
-      </div>
+      <NavBar />
+      <div className="Profile-container">
+        <h2 className="Profile-heading">Your Profile</h2>
+        <div className="Profile-info">
+          <p><span className="Profile-important">{userDetails.walletAddress}</span></p>
+        </div>
 
-      {/* ERC-20 Portfolio Table */}
-      <h3>ERC-20 Portfolio</h3>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Token Name</TableCell>
-              <TableCell>Token Symbol</TableCell>
-              <TableCell>Quantity</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {erc20Portfolio.map((token, index) => (
-              <TableRow key={index}>
-                <TableCell>{token.token_name}</TableCell>
-                <TableCell>{token.token_symbol}</TableCell>
-                <TableCell>{(token.quantity / Math.pow(10, token.decimal)).toFixed(4)}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <div style={{ marginTop: "10px" }}>
-        <Button onClick={() => setErc20Page(erc20Page - 1)} disabled={erc20Page === 0}>
-          Previous
-        </Button>
-        <Button onClick={() => setErc20Page(erc20Page + 1)}>Next</Button>
-      </div>
+        <div className="Profile-tables">
+          {/* ERC-20 Portfolio Table */}
+          <div className="Profile-table">
+            <h3 className="Profile-subheading">Your ERC-20 Portfolio</h3>
+            <TableContainer className="Profile-erc20-table-container">
+              <Table className="Profile-erc20-table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">Token Name</TableCell>
+                    <TableCell align="center">Token Symbol</TableCell>
+                    <TableCell align="center">Quantity</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {erc20Portfolio.map((token, index) => (
+                    <TableRow key={index}>
+                      <TableCell align="center">{token.token_name}</TableCell>
+                      <TableCell align="center">{token.token_symbol}</TableCell>
+                      <TableCell align="center">{(token.quantity / Math.pow(10, token.decimal)).toFixed(4)}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
 
-      {/* NFT Portfolio Table */}
-      <h3>NFT Portfolio</h3>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Collection Name</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {nftPortfolio.map((nft, index) => (
-              <TableRow key={index}>
-                <TableCell>{nft.collection}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <div style={{ marginTop: "10px" }}>
-        <Button onClick={() => setNftPage(nftPage - 1)} disabled={nftPage === 0}>
-          Previous
-        </Button>
-        <Button onClick={() => setNftPage(nftPage + 1)}>Next</Button>
+            <div className="Profile-pagination">
+              <Button onClick={() => setErc20Page(erc20Page - 1)} disabled={erc20Page === 0}>
+                Previous
+              </Button>
+              <Button onClick={() => setErc20Page(erc20Page + 1)}>Next</Button>
+            </div>
+          </div>
+
+          {/* NFT Portfolio Table */}
+          <div className="Profile-table">
+            <h3 className="Profile-subheading">Your NFT Portfolio</h3>
+            <TableContainer className="Profile-nft-table-container">
+              <Table className="Profile-nft-table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="center">Collection Name</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {nftPortfolio.map((nft, index) => (
+                    <TableRow key={index}>
+                      <TableCell align="center">{nft.collection}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <div className="Profile-pagination">
+              <Button onClick={() => setNftPage(nftPage - 1)} disabled={nftPage === 0}>
+                Previous
+              </Button>
+              <Button onClick={() => setNftPage(nftPage + 1)}>Next</Button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
     </>
   );
 };
