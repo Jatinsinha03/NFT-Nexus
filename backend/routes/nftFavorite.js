@@ -57,7 +57,7 @@ router.delete('/removeFavorite', fetchUser, async (req, res) => {
         }
 
         // Find and remove the NFT from the database
-        const removedNFT = await NFT.findOneAndDelete({ user: req.user.id, contractAddress });
+        const removedNFT = await NFT.findOneAndDelete({ user: req.user, contractAddress });
 
         if (!removedNFT) {
             return res.status(404).json({ message: 'NFT not found in favorites' });
