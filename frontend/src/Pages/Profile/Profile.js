@@ -3,6 +3,7 @@ import axios from "axios";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from "@mui/material";
 import NavBar from '../../components/NavBar';
 import './Profile.css';
+import Footer from "../../components/Footer";
 
 const Profile = () => {
   const [userDetails, setUserDetails] = useState({ name: "", walletAddress: "" });
@@ -136,6 +137,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

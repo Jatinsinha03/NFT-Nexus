@@ -99,6 +99,11 @@ function NavBar() {
                             Profile
                         </button>
                     </Link>
+                    <Link to="/checkCopyright">
+                        <button style={isActive('/checkCopyright') ? { backgroundColor: 'green', color: "#ffffff" } : null}>
+                            Check for copyright
+                        </button>
+                    </Link>
                     <p className='dropdown-walletAddress'>{formatWalletAddress(userDetails.walletAddress)}</p>
                     <button style={{ backgroundColor: '#ff7f50', color: "#ffffff" }} onClick={handleLogout}>
                         Logout

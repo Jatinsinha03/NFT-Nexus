@@ -13,6 +13,7 @@ import Favorites from './Pages/Favorites/Favorites';
 import RiskCalculator from './Pages/MarketPlace/RiskCalculator';
 import TopNFTS from './Pages/TopNFTs/TopNFTS';
 import Profile from './Pages/Profile/Profile';
+import NftSearchPage from './Pages/Check_Copyright/NftSearchPage';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/marketplacerisk" element={<RiskCalculator/>} />
           <Route path="/topnfts" element={<TopNFTS/>} />
           <Route path="/profile" element={<Profile/>} />
+          <Route path="/checkCopyright" element={<NftSearchPage/>} />
         </Routes>
       
     </Router>

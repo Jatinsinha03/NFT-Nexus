@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
+import Loader from '../../components/Loader'; // Import Loader
 
 export default function Login(props) {
     const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
     const [transform, setTransform] = useState("");
+    const [isLoading, setIsLoading] = useState(false); // Renamed for consistency
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -26,6 +28,7 @@ export default function Login(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true); // Set loading to true when the login starts
         const response = await fetch("https://nft-nexus-backend.onrender.com/api/auth/login", {
             method: "POST",
             headers: {
@@ -34,6 +37,8 @@ export default function Login(props) {
             body: JSON.stringify(loginDetails),
         });
         const json = await response.json();
+        setIsLoading(false); // Set loading to false after the request completes
+
         if (json.flag) {
             localStorage.setItem('token', json.authToken);
             navigate("/main");
@@ -47,10 +52,12 @@ export default function Login(props) {
     };
 
     return (
-      <div className="bdy">
-        <div>
+        <div className="bdy">
             {/* Background text */}
             <div id="emailHelp-background">NFT NEXUS</div>
+
+            {/* Loader (visible when isLoading is true) */}
+            {isLoading && <Loader />}
 
             {/* Login container */}
             <div
@@ -89,7 +96,6 @@ export default function Login(props) {
                     </p>
                 </form>
             </div>
-        </div>
         </div>
     );
 }
