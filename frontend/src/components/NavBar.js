@@ -101,7 +101,7 @@ function NavBar() {
                     </Link>
                     <Link to="/checkCopyright">
                         <button style={isActive('/checkCopyright') ? { backgroundColor: 'green', color: "#ffffff" } : null}>
-                            Check for copyright
+                            Find Similar NFT
                         </button>
                     </Link>
                     <p className='dropdown-walletAddress'>{formatWalletAddress(userDetails.walletAddress)}</p>

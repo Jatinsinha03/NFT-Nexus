@@ -58,3 +58,55 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Add shadow */
   }
   
+/* Token ID Input Section */
+.PricePred-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between input and button */
+  margin-bottom: 20px;
+}
+
+/* Input Field Styling */
+.PricePred-input input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  border-radius: 50px; /* Rounded input */
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+  color: white; /* White text */
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 200px; /* Fixed width for input */
+}
+
+.PricePred-input input::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Lighter placeholder text */
+}
+
+/* Input Focus Effects */
+.PricePred-input input:focus {
+  border-color: #ff7f50; /* Coral border on focus */
+  box-shadow: 0 0 8px rgba(255, 127, 80, 0.6); /* Coral glow */
+}
+
+/* Button Styling */
+.PricePred-input button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px; /* Rounded button */
+  background-color: #ff7f50; /* Coral background */
+  color: white; /* White text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.PricePred-input button:hover {
+  background-color: #ff4500; /* Darker coral on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+.PricePred-input button:active {
+  transform: translateY(0); /* Reset on click */
+}

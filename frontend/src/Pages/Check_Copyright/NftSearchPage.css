@@ -1,0 +1,115 @@
+/* CSS for NftSearchPage */
+
+/* Overall Page Container */
+.nft-search-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Header Styling */
+  .nft-search-page-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #ff7f50;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* File Input Styling */
+  .nft-file-upload {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+  
+  .nft-file-upload:hover {
+    border-color: #ff3b3b;
+  }
+  
+  /* Loading and Error Messages */
+  .nft-loading-message {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ffff00;
+  }
+  
+  .nft-error-message {
+    font-size: 1rem;
+    color: #ff4d4d;
+  }
+  
+  /* NFT Result Container */
+  .nft-result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 45px;
+    padding-top: 10px;
+    border: 2px solid #ff3b3b;
+    border-radius: 12px;
+    margin-top: 20px;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background for contrast */
+  }
+  
+  /* NFT Result Heading */
+  .nft-result-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  /* NFT Result Content */
+  .nft-result-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  /* NFT Image (Left Side) */
+  .nft-result-image {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 2px solid #ff3b3b;
+    margin-right: 80px;
+  }
+  
+  /* NFT Details (Right Side) */
+  .nft-result-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .nft-result-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+  
+  .nft-result-info {
+    font-size: 1.2rem;
+    color: #d9d9d9;
+    margin: 5px 0;
+  }
+  
+  .nft-result-similarity {
+    font-size: 1.4rem;
+    color: #ff7f50;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

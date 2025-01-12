@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Web3 from 'web3';
 import './SignUp.css'; // Import the new CSS file
+import Loader from '../../components/Loader'; // Import the Loader component
 
 export default function SignUp(props) {
   const [signup, setSignUp] = useState({ name: "", email: "", password: "", cpassword: "", walletAddress: "" });
+  const [loading, setLoading] = useState(false); // State to track loading status
   let navigate = useNavigate();
 
   const handleConnectWallet = async () => {
     try {
-      if (!window.ethereum) return alert('MetaMask not detected', 'warning');
+      setLoading(true); // Start loader
+      if (!window.ethereum) {
+        alert('MetaMask not detected', 'warning');
+        setLoading(false);
+        return;
+      }
 
       const web3 = new Web3(window.ethereum);
       await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -20,32 +27,45 @@ export default function SignUp(props) {
       alert('Wallet connected successfully', 'success');
     } catch (error) {
       alert('Failed to connect wallet', 'warning');
+    } finally {
+      setLoading(false); // Stop loader
     }
   };
 
   const handleSubmit = async (e) => {
-    const { name, email, password, cpassword, walletAddress } = signup;
     e.preventDefault();
+    const { name, email, password, cpassword, walletAddress } = signup;
+
     if (password !== cpassword) {
       return alert('Password does not match', 'warning');
     }
     if (!walletAddress) {
       return alert('Wallet address is required', 'warning');
     }
-    const response = await fetch("https://nft-nexus-backend.onrender.com/api/auth/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, password, walletAddress }),
-    });
-    const json = await response.json();
-    if (json.success) {
-      localStorage.setItem('token', json.authToken);
-      alert("Account created Successfully", "success");
-      navigate("/main");
-    } else {
-      alert("Invalid Credentials", "warning");
+
+    try {
+      setLoading(true); // Start loader
+      const response = await fetch("https://nft-nexus-backend.onrender.com/api/auth/createuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password, walletAddress }),
+      });
+
+      const json = await response.json();
+      if (json.success) {
+        localStorage.setItem('token', json.authToken);
+        alert("Account created Successfully", "success");
+        navigate("/main");
+      } else {
+        alert("Invalid Credentials", "warning");
+      }
+    } catch (error) {
+      console.error("Error during sign-up:", error);
+      alert("An error occurred. Please try again.", "warning");
+    } finally {
+      setLoading(false); // Stop loader
     }
   };
 
@@ -55,6 +75,7 @@ export default function SignUp(props) {
 
   return (
     <div className="signup-body">
+      {loading && <Loader />} {/* Display loader when loading */}
       <div id="signup-background-text">NFT NEXUS</div>
       <div className="signup-container">
         <form onSubmit={handleSubmit} className="signup-form">

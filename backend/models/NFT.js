@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const NFTSchema = new Schema ({
     user:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'user'
+        ref:'user_new_nexus',
     },
     blockchain:{
         type:String,

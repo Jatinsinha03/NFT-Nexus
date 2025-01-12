@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import NavBar from '../../components/NavBar';
 import Footer from "../../components/Footer";
+import './NftSearchPage.css';
 
 
 const NftSearchPage = () => {
@@ -44,24 +45,42 @@ const NftSearchPage = () => {
   return (
     <>
     <NavBar/>
-    <div className="nft-search-page">
-      <h1>Find Similar NFTs</h1>
-      <input type="file" accept="image/*" onChange={handleFileUpload} />
-      
-      {loading && <p>Loading...</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      
+    <div className="nft-search-page-container">
+      <h1 className="nft-search-page-title">Find Similar NFTs</h1>
+      <input className="nft-file-upload" type="file" accept="image/*" onChange={handleFileUpload} />
+
+      {loading && <p className="nft-loading-message">Loading...</p>}
+      {error && <p className="nft-error-message">{error}</p>}
+
       {nftData && !loading && (
-        <div className="nft-result">
-          <h2>Top Match</h2>
-          <img src={nftData.metadata.token_image_url} alt={nftData.metadata.name} />
-          <h3>{nftData.metadata.name}</h3>
-          <p>Collection: {nftData.metadata.collection_name}</p>
-          <p>Similarity Score: {nftData.metric_values.similarity_score.value*100}%</p>
-          <p>Similarity Category: {nftData.metric_values.similarity_category.value}</p>
+        <div className="nft-result-container">
+          {/* Top: Heading */}
+          <h2 className="nft-result-heading">Top Match</h2>
+
+          {/* Content: Left Image, Right Details */}
+          <div className="nft-result-content">
+            {/* Left: Image */}
+            <img
+              className="nft-result-image"
+              src={nftData.metadata.token_image_url}
+              alt={nftData.metadata.name}
+            />
+
+            {/* Right: Details */}
+            <div className="nft-result-details">
+              <h3 className="nft-result-title">{nftData.metadata.name}</h3>
+              <p className="nft-result-info">Collection: {nftData.metadata.collection_name}</p>
+              <p className="nft-result-similarity">
+                Similarity Score: {nftData.metric_values.similarity_score.value * 100}%
+              </p>
+              <p className="nft-result-info">Similarity Category: {nftData.metric_values.similarity_category.value}</p>
+            </div>
+          </div>
         </div>
       )}
     </div>
+
+
     <Footer/>
     </>
   );

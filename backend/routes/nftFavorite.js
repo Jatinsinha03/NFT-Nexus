@@ -15,7 +15,7 @@ router.post('/addToFavorite', fetchUser, async (req, res) => {
 
         // Create a new NFT instance with user and NFT details
         const newNFT = new NFT({
-            user: req.user.id, // user ID from fetchUser middleware
+            user: req.user, // user ID from fetchUser middleware
             blockchain,
             contractAddress,
             chainId,
@@ -34,7 +34,7 @@ router.post('/addToFavorite', fetchUser, async (req, res) => {
 router.get('/getFavorites', fetchUser, async (req, res) => {
     try {
         // Retrieve all NFTs associated with the authenticated user
-        const favorites = await NFT.find({ user: req.user.id });
+        const favorites = await NFT.find({ user: req.user });
 
         if (favorites.length === 0) {
             return res.status(404).json({ message: 'No favorite NFTs found' });

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Main.css';
-import Footer from '../../components/Footer'
+import Footer from '../../components/Footer';
 import NavBar from '../../components/NavBar';
 
 function Main() {
   const [userDetails, setUserDetails] = useState({ name: "", walletAddress: "" });
   const [searchQuery, setSearchQuery] = useState('');
   const [walletProfile, setWalletProfile] = useState({
-    nftCount: 0,
-    collectionCount: 0,
+    nftCount: "0",
+    collectionCount: "0",
     marketplaceRewards: {
       blur: 0,
       looks: 0,
@@ -28,6 +28,7 @@ function Main() {
           "auth-token": localStorage.getItem('token')
         },
       });
+
       const json = await response.json();
       setUserDetails({ name: json.name, walletAddress: json.walletAddress });
 
@@ -43,20 +44,47 @@ function Main() {
       );
 
       const unleashData = await unleashResponse.json();
-      const walletData = unleashData.data[0];
-      setWalletProfile({
-        nftCount: walletData.nft_count,
-        collectionCount: walletData.collection_count,
-        marketplaceRewards: walletData.nft_marketplace_reward
-      });
+
+      // Safely extract data with default fallback values
+      const walletData = unleashData.data && unleashData.data[0] ? unleashData.data[0] : null;
+      if (walletData) {
+        setWalletProfile({
+          nftCount: walletData.nft_count || "Unable to fetch",
+          collectionCount: walletData.collection_count || "Unable to fetch",
+          marketplaceRewards: {
+            blur: walletData.nft_marketplace_reward?.blur || 0,
+            looks: walletData.nft_marketplace_reward?.looks || 0,
+            rari: walletData.nft_marketplace_reward?.rari || 0
+          }
+        });
+      } else {
+        setWalletProfile({
+          nftCount: "Unable to fetch",
+          collectionCount: "Unable to fetch",
+          marketplaceRewards: {
+            blur: 0,
+            looks: 0,
+            rari: 0
+          }
+        });
+      }
     } catch (err) {
       console.error("Error fetching data:", err);
+      setWalletProfile({
+        nftCount: "Unable to fetch",
+        collectionCount: "Unable to fetch",
+        marketplaceRewards: {
+          blur: 0,
+          looks: 0,
+          rari: 0
+        }
+      });
     }
   };
 
   function formatWalletAddress(address) {
     return address ? `${address.slice(0, 4)}...${address.slice(-2)}` : '';
-  } 
+  }
 
   useEffect(() => {
     showUserDetail();
@@ -69,46 +97,42 @@ function Main() {
 
   return (
     <>
-    <NavBar/>
-    <div className="container">
-  {/* search bar */}
+      <NavBar />
+      <div className="container">
+        {/* Search bar */}
+        <form className="search-form" onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Search for NFTs by contract address..."
+            value={searchQuery}
+            className="searchBar"
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button type="submit">Search</button>
+        </form>
 
-  <form className="search-form" onSubmit={handleSearch}>
-    <input
-      type="text"
-      placeholder="Search for NFTs by contract address..."
-      value={searchQuery}
-      className='searchBar'
-      onChange={(e) => setSearchQuery(e.target.value)}
-    />
-    <button type="submit">Search</button>
-  </form>
+        <div className="stats-row">
+          <div className="stats-box">
+            <h3>NFT Count</h3>
+            <p>{walletProfile.nftCount}</p>
+          </div>
+          <div className="stats-box">
+            <h3>Collection Count</h3>
+            <p>{walletProfile.collectionCount}</p>
+          </div>
+        </div>
 
-  <div className="stats-row">
-    <div className="stats-box">
-      <h3>NFT Count</h3>
-      <p>{walletProfile.nftCount}</p>
-    </div>
-    <div className="stats-box">
-      <h3>Collection Count</h3>
-      <p>{walletProfile.collectionCount}</p>
-    </div>
-  </div>
-
-  <div className="center-box">
-    <h3>Marketplace Rewards</h3>
-    <ul>
-      <li>Blur: {walletProfile.marketplaceRewards.blur.toFixed(2)}</li>
-      <li>LooksRare: {walletProfile.marketplaceRewards.looks.toFixed(2)}</li>
-      <li>Rarible: {walletProfile.marketplaceRewards.rari.toFixed(2)}</li>
-    </ul>
-  </div>
-
-
-</div>
-<Footer/>
-</>
-
+        <div className="center-box">
+          <h3>Marketplace Rewards</h3>
+          <ul>
+            <li>Blur: {walletProfile.marketplaceRewards.blur.toFixed(2)}</li>
+            <li>LooksRare: {walletProfile.marketplaceRewards.looks.toFixed(2)}</li>
+            <li>Rarible: {walletProfile.marketplaceRewards.rari.toFixed(2)}</li>
+          </ul>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 }
 
