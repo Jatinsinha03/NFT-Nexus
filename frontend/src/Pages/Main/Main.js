@@ -49,8 +49,8 @@ function Main() {
       const walletData = unleashData.data && unleashData.data[0] ? unleashData.data[0] : null;
       if (walletData) {
         setWalletProfile({
-          nftCount: walletData.nft_count || "Unable to fetch",
-          collectionCount: walletData.collection_count || "Unable to fetch",
+          nftCount: walletData.nft_count || "Data not found",
+          collectionCount: walletData.collection_count || "Data not found",
           marketplaceRewards: {
             blur: walletData.nft_marketplace_reward?.blur || 0,
             looks: walletData.nft_marketplace_reward?.looks || 0,
@@ -59,8 +59,8 @@ function Main() {
         });
       } else {
         setWalletProfile({
-          nftCount: "Unable to fetch",
-          collectionCount: "Unable to fetch",
+          nftCount: "Data not found",
+          collectionCount: "Data not found",
           marketplaceRewards: {
             blur: 0,
             looks: 0,
@@ -71,8 +71,8 @@ function Main() {
     } catch (err) {
       console.error("Error fetching data:", err);
       setWalletProfile({
-        nftCount: "Unable to fetch",
-        collectionCount: "Unable to fetch",
+        nftCount: "Data not found",
+        collectionCount: "Data not found",
         marketplaceRewards: {
           blur: 0,
           looks: 0,
