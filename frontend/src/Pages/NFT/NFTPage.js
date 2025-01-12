@@ -13,6 +13,7 @@ function NFTPage() {
     const [profileData, setProfileData] = useState(null);
     const [isFavorite, setIsFavorite] = useState(false);
     const [prediction, setPrediction] = useState(null);
+    const [anomalyPrediction, setAnaomalyPrediction] = useState(null);
     const [loading, setLoading] = useState(true);
 
     // Fetch metadata and profile data
@@ -55,7 +56,8 @@ function NFTPage() {
             }
 
             if (profile) {
-                handlePrediction(profile);
+                handleInvestmentProfile(profile);
+                handleAnomalyPrediction(profile);
             }
 
             setLoading(false);
@@ -90,7 +92,7 @@ function NFTPage() {
     };
 
     // Predict risk category
-    const handlePrediction = async (profile) => {
+    const handleInvestmentProfile = async (profile) => {
         const features = {
             loss_making_trades: profile.loss_making_trades,
             avg_loss_making_trades: profile.avg_loss_making_trades,
@@ -101,7 +103,7 @@ function NFTPage() {
         };
 
         try {
-            const response = await fetch("https://nft-nexus-g7co.onrender.com/predict", {
+            const response = await fetch("https://nft-nexus-g7co.onrender.com/risk-predict", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -115,6 +117,30 @@ function NFTPage() {
             console.error("Error predicting risk category:", error);
         }
     };
+
+    const handleAnomalyPrediction = async (profile) => {
+        const features = {
+            washtrade_index: profile.washtrade_index,
+            zero_profit_trades: profile.zero_profit_trades,
+            loss_making_volume: profile.loss_making_volume,
+        };
+    
+        try {
+            const response = await fetch("https://nft-nexus-g7co.onrender.com/anomaly-predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(features),
+            });
+    
+            const result = await response.json();
+            setAnaomalyPrediction(result.prediction || "Unknown");
+        } catch (error) {
+            console.error("Error predicting anomaly:", error);
+        }
+    };
+    
 
     // Add to favorites
     const handleFavorite = async () => {
@@ -176,7 +202,7 @@ function NFTPage() {
                 
                 <h2 className='nftpage-investment-risk'>Investment Risk : {prediction} </h2>
                 <p className='nftpage-investment-risk-desc'>(Risk is determined by our advanced AI model using a comprehensive analysis of the collection's profile, which includes metrics such as loss-making trades, average loss-making trades, trade percentage, loss-making volume, diamond hands, and liquidity score.)</p>
-                
+                <h2 className='nftpage-investment-risk'>Anomaly : {anomalyPrediction} </h2>
                 <p className="nftpage-description">{nftData.description}</p>
                 <div className="nftpage-links">
                     {nftData.external_url && (
