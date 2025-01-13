@@ -22,7 +22,7 @@ const NftSearchPage = () => {
 
       try {
         // Send the file to your Flask server
-        const response = await axios.post('http://localhost:3030/nft-image-upload', formData, {
+        const response = await axios.post('https://nft-nexus-g7co.onrender.com/nft-image-upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
