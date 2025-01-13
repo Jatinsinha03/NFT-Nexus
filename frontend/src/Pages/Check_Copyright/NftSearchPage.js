@@ -4,16 +4,20 @@ import NavBar from '../../components/NavBar';
 import Footer from "../../components/Footer";
 import './NftSearchPage.css';
 
-
 const NftSearchPage = () => {
   const [nftData, setNftData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);  // State to store image preview
 
   // Handle file upload
   const handleFileUpload = async (event) => {
     const file = event.target.files[0];
     if (file) {
+      // Create a preview of the image
+      const previewUrl = URL.createObjectURL(file);
+      setImagePreview(previewUrl);  // Set the preview
+
       setLoading(true);
       setError(null);
 
@@ -44,44 +48,51 @@ const NftSearchPage = () => {
 
   return (
     <>
-    <NavBar/>
-    <div className="nft-search-page-container">
-      <h1 className="nft-search-page-title">Find Similar NFTs</h1>
-      <input className="nft-file-upload" type="file" accept="image/*" onChange={handleFileUpload} />
+      <NavBar/>
+      <div className="nft-search-page-container">
+        <h1 className="nft-search-page-title">Find Similar NFTs</h1>
+        
+        <input className="nft-file-upload" type="file" accept="image/*" onChange={handleFileUpload} />
+        
+        {imagePreview && (
+          <div className="nft-image-preview-container">
+            <h3>Image Preview</h3>
+            <img className="nft-image-preview" src={imagePreview} alt="Selected" />
+          </div>
+        )}
 
-      {loading && <p className="nft-loading-message">Loading...</p>}
-      {error && <p className="nft-error-message">{error}</p>}
+        {loading && <p className="nft-loading-message">Loading...</p>}
+        {error && <p className="nft-error-message">{error}</p>}
 
-      {nftData && !loading && (
-        <div className="nft-result-container">
-          {/* Top: Heading */}
-          <h2 className="nft-result-heading">Top Match</h2>
+        {nftData && !loading && (
+          <div className="nft-result-container">
+            {/* Top: Heading */}
+            <h2 className="nft-result-heading">Top Match</h2>
 
-          {/* Content: Left Image, Right Details */}
-          <div className="nft-result-content">
-            {/* Left: Image */}
-            <img
-              className="nft-result-image"
-              src={nftData.metadata.token_image_url}
-              alt={nftData.metadata.name}
-            />
+            {/* Content: Left Image, Right Details */}
+            <div className="nft-result-content">
+              {/* Left: Image */}
+              <img
+                className="nft-result-image"
+                src={nftData.metadata.token_image_url}
+                alt={nftData.metadata.name}
+              />
 
-            {/* Right: Details */}
-            <div className="nft-result-details">
-              <h3 className="nft-result-title">{nftData.metadata.name}</h3>
-              <p className="nft-result-info">Collection: {nftData.metadata.collection_name}</p>
-              <p className="nft-result-similarity">
-                Similarity Score: {nftData.metric_values.similarity_score.value * 100}%
-              </p>
-              <p className="nft-result-info">Similarity Category: {nftData.metric_values.similarity_category.value}</p>
+              {/* Right: Details */}
+              <div className="nft-result-details">
+                <h3 className="nft-result-title">{nftData.metadata.name}</h3>
+                <p className="nft-result-info">Collection: {nftData.metadata.collection_name}</p>
+                <p className="nft-result-similarity">
+                  Similarity Score: {nftData.metric_values.similarity_score.value * 100}%
+                </p>
+                <p className="nft-result-info">Similarity Category: {nftData.metric_values.similarity_category.value}</p>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
 
-
-    <Footer/>
+      <Footer/>
     </>
   );
 };
