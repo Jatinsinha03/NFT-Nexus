@@ -126,6 +126,10 @@
   border-radius: 10px;
 }
 
+.nftpage-span{
+  color:#B0E0E6 ;
+}
+
 /* Responsive design */
 @media screen and (max-width: 768px) {
   .nftpage-container {

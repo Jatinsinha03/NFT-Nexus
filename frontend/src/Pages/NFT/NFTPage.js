@@ -200,9 +200,10 @@ function NFTPage() {
                     <button onClick={handleFavorite} disabled={isFavorite} className="nftpage-favorite-btn">{isFavorite ? 'Favorited' : 'Add to Favorite'}</button>
                 </div>
                 
-                <h2 className='nftpage-investment-risk'>Investment Risk : {prediction} </h2>
+                <h2 className='nftpage-investment-risk'>Investment Risk : <span className="nftpage-span">{prediction}</span> </h2>
                 <p className='nftpage-investment-risk-desc'>(Risk is determined by our advanced AI model using a comprehensive analysis of the collection's profile, which includes metrics such as loss-making trades, average loss-making trades, trade percentage, loss-making volume, diamond hands, and liquidity score.)</p>
-                <h2 className='nftpage-investment-risk'>Anomaly : {anomalyPrediction} </h2>
+                <h2 className='nftpage-investment-risk'>Collection Anomaly Analysis Result : <span className="nftpage-span">{anomalyPrediction}</span> </h2>
+                <p className='nftpage-investment-risk-desc'>(Anomaly is determined by our advanced AI model through an in-depth analysis of the collection's profile. The model evaluates critical metrics such as washtrade index, zero-profit trades, loss-making volume, and other behavioral indicators to identify patterns of potential fraud or suspicious activity within the NFT collection.)</p>
                 <p className="nftpage-description">{nftData.description}</p>
                 <div className="nftpage-links">
                     {nftData.external_url && (
