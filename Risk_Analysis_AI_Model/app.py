@@ -38,7 +38,9 @@ def anomaly_predict():
         prediction = anomaly_model.predict(custom_input_scaled)
 
         # Map numeric prediction to label
-        labels = {0: 'Normal', 1: 'Potential Anomaly', 2: 'Anomaly'}
+        labels = {0: '[Normal] This collection shows no signs of suspicious activity. It appears to be safe for trading based on the current analysis. However, always conduct due diligence before making investments.',
+                   1: '[Potential Anomaly]This collection exhibits some unusual trading patterns that could indicate risks. The activity might be driven by both genuine interest and potential fraud attempts (later being likely). Proceed with caution and consider further research before investing.', 
+                   2: "[Anomaly] Caution: This collection shows unusual trading patterns that may indicate potential fraud (e.g., wash trading) or could stem from its high popularity and trading volume. Popular collections often attract both genuine interest and opportunistic behaviors. Carefully review the collection's details and market context before investing"}
         predicted_label = labels.get(prediction[0], 'Unknown')
 
         return jsonify({'prediction': predicted_label})
