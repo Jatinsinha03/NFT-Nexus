@@ -2,8 +2,37 @@
 
 NFT Nexus is a cutting-edge platform meticulously designed to cater to NFT enthusiasts and investors by offering a holistic suite of insights, analytics, and tools. With a focus on empowering users, NFT Nexus provides detailed metadata on NFT collections, in-depth market analysis, and advanced AI-powered predictions. Whether you are an investor seeking optimal opportunities or a collector ensuring the legitimacy of your NFTs, NFT Nexus delivers the data and tools you need to navigate the dynamic NFT ecosystem with confidence.
 
-See the demo of our project : [Link](https://nft-nexus-1.onrender.com/)
 ---
+
+## Demo
+- Website Link - [Link](https://nft-nexus-1.onrender.com/)
+- Youtube Video Link - [Link](https://youtu.be/ec8qRhXDHWA)
+
+## Tech Stack
+
+**Client:** React, Redux, Vanilla CSS
+
+**Server:** Node, Express
+
+**Database:** MongoDB
+
+**Model Used:** Random Forest 
+
+**Dataset Used For training the model:** [Dataset of 1000 NFTs](https://docs.google.com/spreadsheets/d/1wajPcADmAW1-iE6GZfyo5V4UhSATcqsetpZEyrM42G8/edit?usp=sharing)
+
+**APIs Used:**
+- NFT Collection MetaData API
+- Collection Analytics API
+- NFT Token Price Estimate API
+- NFT Marketplace Analytics API
+- NFT Marketplace Holders API
+- NFT Marketplace Traders API
+- NFT Marketplace Wash Trades API
+- NFT Transactions API
+- NFT portfolio API
+- ERC20 portfolio
+- Find Similar Image
+
 
 ## Features
 
@@ -17,6 +46,7 @@ See the demo of our project : [Link](https://nft-nexus-1.onrender.com/)
 
 ### 3. **Marketplace Analysis**
 - Assess whether the NFT marketplace is risk-free or not.
+
 - **Risk Score Analysis**:
   - Analyzes trading volume, sales, and transaction trends.
   - Detects wash trading activities (fraudulent transactions).
@@ -26,9 +56,10 @@ See the demo of our project : [Link](https://nft-nexus-1.onrender.com/)
     - Low sales + high seller activity = Medium risk (caution advised).
     - Absence of wash trades = Increased transparency.
 
+
 ### 4. **Top NFT Collections**
 - Discover the top-performing NFTs in the marketplace.
-- Filter results by time periods such as the last 24 hours or last 7 days.
+- Filter results by time periods such as the last 24 hours or last 7 days, last 30 days or all.
 
 ### 5. **ERC20 and NFT Portfolio Management**
 - View your ERC20 token portfolio and NFT token portfolio directly in the profile section.
