@@ -148,7 +148,7 @@ export default function SignUp(props) {
           </button>
           <button type="submit" className="signup-btn-primary">Sign Up</button>
           <p className="signup-text">
-            Already have an account? <Link to="/login">Log in</Link>
+            Already have an account? <Link to="login">Log in</Link>
           </p>
         </form>
       </div>
