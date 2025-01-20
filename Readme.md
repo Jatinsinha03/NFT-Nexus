@@ -5,7 +5,10 @@ NFT Nexus is a cutting-edge platform meticulously designed to cater to NFT enthu
 ---
 
 ## Demo
-- Website Link - [Link](https://nft-nexus-1.onrender.com/)
+- Website Link - [Link](https://nft-nexus-1.onrender.com/) (PS:It can take some time to load)
+(For testing the website you can use the following
+Email Id - testing@123.com
+Password - hello123@# )
 - Youtube Video Link - [Link](https://youtu.be/ec8qRhXDHWA)
 
 ## Tech Stack
@@ -20,7 +23,7 @@ NFT Nexus is a cutting-edge platform meticulously designed to cater to NFT enthu
 
 **Dataset Used For training the model:** [Dataset of 1000 NFTs](https://docs.google.com/spreadsheets/d/1wajPcADmAW1-iE6GZfyo5V4UhSATcqsetpZEyrM42G8/edit?usp=sharing)
 
-**APIs Used:**
+**BitsCrunch APIs Used:**
 - NFT Collection MetaData API
 - Collection Analytics API
 - NFT Token Price Estimate API
