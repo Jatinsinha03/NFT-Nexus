@@ -86,10 +86,10 @@ function LandingPage() {
     Analyze and trade NFTs like never before with advanced tools and insights tailored to your needs.
   </p>
   <div className="hero-cta">
-    <Link to="login">
+    <Link to="/login">
       <button className="cta-button explore-button">Login</button>
     </Link>
-    <Link to="signup">
+    <Link to="/signup">
       <button className="cta-button wallet-button">SignUp</button>
     </Link>
   </div>

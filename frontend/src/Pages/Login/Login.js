@@ -92,7 +92,7 @@ export default function Login(props) {
                     </div>
                     <button type="submit" className="btn btn-primary">Login</button>
                     <p className="signup-text">
-                        Don't have an account? <Link to="signup">Create Account</Link>
+                        Don't have an account? <Link to="/signup">Create Account</Link>
                     </p>
                 </form>
             </div>
