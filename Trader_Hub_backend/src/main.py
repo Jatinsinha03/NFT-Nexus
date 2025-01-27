@@ -49,4 +49,4 @@ async def stream_rag_output(request: Request):
     return res
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=port, reload=True, log_level="info")   
+    uvicorn.run("main:app", port=int(port), reload=True, log_level="info")   
