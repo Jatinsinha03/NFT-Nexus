@@ -170,6 +170,26 @@ This dataset provides a robust foundation for data-driven insights, enabling vis
 
 ---
 
+## Images
+
+<img width="500" alt="Screenshot 2025-01-21 at 12 42 42 AM" src="https://github.com/user-attachments/assets/044ab043-51e3-47e6-985b-f1064c5baba1" />
+
+<img width="500" alt="Screenshot 2025-01-21 at 12 43 26 AM" src="https://github.com/user-attachments/assets/f9c2a386-32b5-41de-971f-a8df49a66898" />
+
+<img width="500" alt="Screenshot 2025-01-21 at 12 43 58 AM" src="https://github.com/user-attachments/assets/6f2ef41b-d6aa-4742-933d-78f38d1a6216" />
+
+<img width="500" alt="Screenshot 2025-01-21 at 12 44 23 AM" src="https://github.com/user-attachments/assets/1d2dca96-59cf-486c-9c06-5234ec8543db" />
+
+<img width="500" alt="Screenshot 2025-01-21 at 12 47 54 AM" src="https://github.com/user-attachments/assets/b8d5efc3-d48f-4ed5-bdac-ba4c77237b91" />
+
+<img width="500" alt="Screenshot 2025-01-21 at 12 48 20 AM" src="https://github.com/user-attachments/assets/43038238-5a9a-4e71-ac16-54c36bf37d37" />
+
+<img width="500" alt="Screenshot 2025-01-21 at 12 44 23 AM" src="https://github.com/user-attachments/assets/aea4813a-c1ed-4f29-8bb6-6cb95116a7f3" />
+
+<img width="500" alt="Screenshot 2025-01-21 at 12 48 20 AM" src="https://github.com/user-attachments/assets/07a8d43a-dd3c-41be-8902-54b6d84e7775" />
+
+---
+
 ## License
 
 NFT Nexus is licensed under [MIT License](LICENSE).
