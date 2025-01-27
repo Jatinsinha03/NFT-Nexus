@@ -12,6 +12,7 @@ from aiagent import normal_chat, structured_rag_output
 bitscrunch_api_key = os.environ.get("BITSCRUNCH_API_KEY")  
 load_dotenv()
 app = FastAPI()
+port = os.environ.get("PORT")
 
 origins = [
     "http://localhost",
@@ -48,4 +49,4 @@ async def stream_rag_output(request: Request):
     return res
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=8000, reload=True, log_level="info")   
+    uvicorn.run("main:app", port=port, reload=True, log_level="info")   
