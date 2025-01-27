@@ -104,6 +104,11 @@ function NavBar() {
                             Find Similar NFT
                         </button>
                     </Link>
+                    <Link to="/chat">
+                        <button style={isActive('/chat') ? { backgroundColor: 'green', color: "#ffffff" } : null}>
+                            Chat Now
+                        </button>
+                    </Link>
                     <p className='dropdown-walletAddress'>{formatWalletAddress(userDetails.walletAddress)}</p>
                     <button style={{ backgroundColor: '#ff7f50', color: "#ffffff" }} onClick={handleLogout}>
                         Logout

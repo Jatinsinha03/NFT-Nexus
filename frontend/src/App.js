@@ -14,6 +14,7 @@ import RiskCalculator from './Pages/MarketPlace/RiskCalculator';
 import TopNFTS from './Pages/TopNFTs/TopNFTS';
 import Profile from './Pages/Profile/Profile';
 import NftSearchPage from './Pages/Check_Copyright/NftSearchPage';
+import Chat from './Pages/Chat/Chat';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/topnfts" element={<TopNFTS/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/checkCopyright" element={<NftSearchPage/>} />
+          <Route path="/chat" element={<Chat/>} />
         </Routes>
       
     </Router>
