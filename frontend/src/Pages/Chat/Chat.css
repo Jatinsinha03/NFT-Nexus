@@ -1,0 +1,172 @@
+/* Container Styling */
+.ChatPage-container {
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
+    padding: 20px;
+    width: 80%;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+  }
+  
+  /* Header Styling */
+  .ChatPage-header-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .ChatPage-header-text {
+    font-size: 2.5rem; /* Larger font size for header */
+    color: #ff7f50; /* Coral color */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff7f50;
+    padding-bottom: 10px;
+  }
+  
+  /* Message Container Styling */
+  .ChatPage-messages-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    border: 1px solid #ff7f50; /* Coral border color */
+    border-radius: 8px;
+    padding: 16px;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* System Message Styling */
+  .ChatPage-system-message {
+    color: #32cd32; /* Lime Green */
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  /* User Message Styling */
+  .ChatPage-user-message {
+    color: #87ceeb; /* Sky Blue */
+    margin-bottom: 10px;
+  }
+  
+  /* AI Message Styling */
+  .ChatPage-ai-message {
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  /* Error Message Styling */
+  .ChatPage-error-message {
+    color: #ff6347; /* Tomato Red */
+    margin-bottom: 10px;
+  }
+  
+  /* Response Container Styling */
+  .ChatPage-response-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Message Response Sections */
+  .ChatPage-header {
+    border-bottom: 2px solid #ff7f50; /* Coral color */
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+  }
+  
+  .ChatPage-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff7f50;
+  }
+  
+  .ChatPage-description {
+    color: #d3d3d3; /* Light gray */
+    font-size: 1rem;
+  }
+  
+  .ChatPage-market-trends, .ChatPage-liquidity, .ChatPage-buy-rec, .ChatPage-benefits, .ChatPage-risks, .ChatPage-alt-collections {
+    background-color: rgba(0, 0, 0, 0.3); /* Darken the backgrounds */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 16px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+  
+  /* Buy Recommendation and Risks Section Styling */
+  .ChatPage-buy-rec, .ChatPage-risks {
+    border-left: 5px solid #32cd32; /* Green border for recommendations */
+  }
+  
+  .ChatPage-buy-rec {
+    background-color: rgba(0, 255, 0, 0.2); /* Green background */
+  }
+  
+  .ChatPage-risks {
+    background-color: rgba(255, 0, 0, 0.2); /* Red background */
+  }
+  
+  /* Button Styling */
+  .ChatPage-submit-button {
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    background-color: #ff7f50; /* Coral */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ChatPage-submit-button:disabled {
+    background-color: rgba(255, 127, 80, 0.5); /* Disabled button */
+  }
+  
+  .ChatPage-submit-button:hover {
+    background-color: #ff5722; /* Darker Coral on hover */
+  }
+  
+  /* Input Field Styling */
+  .ChatPage-input-field {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .ChatPage-input-field:focus {
+    border-color: #ff7f50; /* Coral color */
+    background-color: rgba(255, 127, 80, 0.2); /* Light coral background */
+  }
+  
+  .ChatPage-input-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  /* Scrollbar Styling */
+  .ChatPage-messages-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .ChatPage-messages-container::-webkit-scrollbar-thumb {
+    background-color: #ff7f50;
+    border-radius: 10px;
+  }
+  
+  .ChatPage-messages-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
