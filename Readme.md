@@ -1,100 +1,119 @@
 # NFT Nexus
 
-NFT Nexus is a cutting-edge platform meticulously designed to cater to NFT enthusiasts and investors by offering a holistic suite of insights, analytics, and tools. With a focus on empowering users, NFT Nexus provides detailed metadata on NFT collections, in-depth market analysis, and advanced AI-powered predictions. Whether you are an investor seeking optimal opportunities or a collector ensuring the legitimacy of your NFTs, NFT Nexus delivers the data and tools you need to navigate the dynamic NFT ecosystem with confidence.
+NFT Nexus is a cutting-edge platform meticulously designed to cater to NFT enthusiasts and investors by offering a holistic suite of insights, analytics, and tools. With a focus on empowering users, NFT Nexus provides detailed metadata on NFT collections, in-depth market analysis, and advanced AI-powered predictions along with assistance of an ai agent. Whether you are an investor seeking optimal opportunities or a collector ensuring the legitimacy of your NFTs, NFT Nexus delivers the data and tools you need to navigate the dynamic NFT ecosystem with confidence.
 
 ---
 
 ## Demo
-- Website Link - [Link](https://nft-nexus-1.onrender.com/) (PS:It can take some time to load)
-(For testing the website you can use the following
-Email Id - testing@123.com
-Password - hello123@# )
-- Youtube Video Link - [Link](https://youtu.be/ec8qRhXDHWA)
+- **Website Link** - [Link](https://nft-nexus-1.onrender.com/) (PS: It can take some time to load)  
+  _(For testing the website, you can use the following credentials)_  
+  **Email ID:** testing@123.com  
+  **Password:** hello123@#  
+- **YouTube Video Link** - [Link](https://youtu.be/ec8qRhXDHWA)
 
 ## Tech Stack
 
-**Client:** React, Redux, Vanilla CSS
+**Client:** React, Redux, Vanilla CSS  
+**Server:** Node, Express  
+**Database:** MongoDB  
+**AI Model Used:** Random Forest  
+**Dataset Used For Training:** [Dataset of 1000 NFTs](https://docs.google.com/spreadsheets/d/1wajPcADmAW1-iE6GZfyo5V4UhSATcqsetpZEyrM42G8/edit?usp=sharing)  
+**AI Agent:** Cohere (NFT Trader’s Hub)  
 
-**Server:** Node, Express
+### **BitsCrunch APIs Used**
+- NFT Collection MetaData API  
+- Collection Analytics API  
+- NFT Token Price Estimate API  
+- NFT Marketplace Analytics API  
+- NFT Marketplace Holders API  
+- NFT Marketplace Traders API  
+- NFT Marketplace Wash Trades API  
+- NFT Transactions API  
+- NFT Portfolio API  
+- ERC20 Portfolio API  
+- Find Similar Image API  
 
-**Database:** MongoDB
-
-**Model Used:** Random Forest 
-
-**Dataset Used For training the model:** [Dataset of 1000 NFTs](https://docs.google.com/spreadsheets/d/1wajPcADmAW1-iE6GZfyo5V4UhSATcqsetpZEyrM42G8/edit?usp=sharing)
-
-**BitsCrunch APIs Used:**
-- NFT Collection MetaData API
-- Collection Analytics API
-- NFT Token Price Estimate API
-- NFT Marketplace Analytics API
-- NFT Marketplace Holders API
-- NFT Marketplace Traders API
-- NFT Marketplace Wash Trades API
-- NFT Transactions API
-- NFT portfolio API
-- ERC20 portfolio
-- Find Similar Image
-
+---
 
 ## Features
 
 ### 1. **Explore and Analyze NFT Collections**
-- View detailed metadata for NFT collections.
-- Track key metrics like volume trends and transaction patterns.
-- Predict price estimates using advanced analytics.
+- View detailed metadata for NFT collections.  
+- Track key metrics like volume trends and transaction patterns.  
+- Predict price estimates using advanced analytics.  
 
 ### 2. **Favorite Collections**
-- Add or remove NFT collections in your favorites section for quick access.
+- Add or remove NFT collections in your favorites section for quick access.  
 
 ### 3. **Marketplace Analysis**
-- Assess whether the NFT marketplace is risk-free or not.
+- Assess whether the NFT marketplace is risk-free or not.  
 
 - **Risk Score Analysis**:
-  - Analyzes trading volume, sales, and transaction trends.
-  - Detects wash trading activities (fraudulent transactions).
-  - Evaluates trader behavior, such as buyer-seller ratios and activity patterns.
-  - Categorizes marketplaces into low, medium, or high risk levels.
-  - Example: 
-    - Low sales + high seller activity = Medium risk (caution advised).
-    - Absence of wash trades = Increased transparency.
-
+  - Analyzes trading volume, sales, and transaction trends.  
+  - Detects wash trading activities (fraudulent transactions).  
+  - Evaluates trader behavior, such as buyer-seller ratios and activity patterns.  
+  - Categorizes marketplaces into **low, medium, or high risk** levels.  
+  - **Example:**  
+    - **Low sales + high seller activity** → Medium risk (caution advised).  
+    - **Absence of wash trades** → Increased transparency.  
 
 ### 4. **Top NFT Collections**
-- Discover the top-performing NFTs in the marketplace.
-- Filter results by time periods such as the last 24 hours or last 7 days, last 30 days or all.
+- Discover the top-performing NFTs in the marketplace.  
+- Filter results by time periods such as **last 24 hours, last 7 days, last 30 days, or all-time.**  
 
 ### 5. **ERC20 and NFT Portfolio Management**
-- View your ERC20 token portfolio and NFT token portfolio directly in the profile section.
+- View your **ERC20 token portfolio** and **NFT token portfolio** directly in the profile section.  
 
 ### 6. **NFT Similarity Checker**
-- Avoid copyright issues or verify the legitimacy of an NFT by checking its similarity to existing NFTs.
+- Avoid copyright issues or verify the legitimacy of an NFT by checking its similarity to existing NFTs.  
 
 ### 7. **Real-Time Notifications and Alerts**
 - Stay informed with updates on:
-  - Price changes.
-  - Significant wallet activities.
-  - Market trends.
+  - Price changes.  
+  - Significant wallet activities.  
+  - Market trends.  
 
 ### 8. **AI Models for Advanced Insights**
-- **Investment Risk Analysis**:
-  - Powered by an AI model trained on 1,000 NFT collection profiles.
-  - Assesses risk based on:
-    - Loss-making trades.
-    - Average loss-making trades.
-    - Trade percentage.
-    - Loss-making volume.
-    - Diamond hands.
-    - Liquidity score.
-- **Collection Anomaly Analysis**:
-  - Detects patterns of potential fraud or suspicious activity.
-  - Evaluates:
-    - Washtrade index.
-    - Zero-profit trades.
-    - Loss-making volume.
-    - Other behavioral indicators.
+#### **Investment Risk Analysis**
+- Powered by an AI model trained on **1,000 NFT collection profiles**.  
+- Assesses risk based on:
+  - **Loss-making trades**
+  - **Average loss-making trades**
+  - **Trade percentage**
+  - **Loss-making volume**
+  - **Diamond hands**
+  - **Liquidity score**  
 
-### 9. **Built with bitsCrunch APIs**
+#### **Collection Anomaly Analysis**
+- Detects patterns of potential fraud or suspicious activity.  
+- Evaluates:
+  - **Washtrade index**
+  - **Zero-profit trades**
+  - **Loss-making volume**
+  - **Other behavioral indicators**  
+
+---
+
+## 9. **NFT Trader's Hub (AI Agent powered by Cohere)**
+**NFT Trader’s Hub** is an advanced AI assistant designed to **answer questions** about NFT collections, market trends, tokens, and investment strategies. It provides **expert advice** to help users make informed decisions in the world of NFTs and digital assets.
+
+### **How It Works**
+Ask questions such as:  
+✅ "Should I buy from [NFT Collection]?"   
+
+The AI agent responds with insights, including:  
+
+- **Analysis**: Examines the NFT collection’s historical data and trends.  
+- **Market Trends**: Provides an overview of the latest price movements and demand.  
+- **Liquidity**: Assesses how easily an NFT can be bought or sold.  
+- **Buy Recommendation**: Suggests whether the NFT is a good purchase or not.  
+- **Overall Benefits**: Highlights the collection’s strengths and potential rewards.  
+- **Potential Risks**: Identifies any red flags or concerns about the collection.  
+- **Alternative Collections**: Suggests similar NFTs that may be a better investment.  
+
+---
+
+### 10. **Built with bitsCrunch APIs**
 - All functionalities leverage the powerful and reliable bitsCrunch APIs, ensuring data accuracy and seamless integration.
 
 ---
@@ -157,16 +176,18 @@ This dataset provides a robust foundation for data-driven insights, enabling vis
 2. **Connect Your Wallet**: Securely connect your wallet to view your token and NFT portfolio.
 3. **Explore and Analyze**: Navigate through collections, perform marketplace analysis, and track your favorite NFTs.
 4. **Use AI Insights**: Leverage AI-powered tools for investment risk and anomaly analysis.
-5. **Stay Updated**: Enable notifications for real-time alerts on market trends and activities.
+5. **Utilize NFT Trader’s Hub**: Ask AI-driven questions about NFT collections, market trends, tokens, and investment strategies.
+6. **Stay Updated**: Enable notifications for real-time alerts on market trends and activities.
 
 ---
 
 ## Examples of Use Cases
 
-- **Risk-Free Trading**: Use marketplace analysis to identify safe trading platforms.
-- **Portfolio Management**: Track your ERC20 and NFT token holdings efficiently.
-- **Copyright Verification**: Avoid purchasing counterfeit NFTs with the similarity checker.
-- **Investment Decisions**: Analyze collections with AI-powered risk and anomaly assessments.
+- **Risk-Free Trading**: Use marketplace analysis to identify safe trading platforms.  
+- **Portfolio Management**: Track your ERC20 and NFT token holdings efficiently.  
+- **Copyright Verification**: Avoid purchasing counterfeit NFTs with the similarity checker.  
+- **Investment Decisions**: Analyze collections with AI-powered risk and anomaly assessments.  
+- **Expert Investment Guidance**: Leverage NFT Trader’s Hub to get AI-driven insights on collections, market trends, and token strategies.
 
 ---
 
