@@ -9,7 +9,7 @@ NFT Nexus is a cutting-edge platform meticulously designed to cater to NFT enthu
   _(For testing the website, you can use the following credentials)_  
   **Email ID:** testing@123.com  
   **Password:** hello123@#  
-- **YouTube Video Link** - [Link](https://youtu.be/ec8qRhXDHWA)
+- **YouTube Video Link** - [Link](https://www.youtube.com/watch?v=LAklrv9fW4w)
 
 ## Tech Stack
 
