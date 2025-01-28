@@ -92,9 +92,7 @@ NFT Nexus is a cutting-edge platform meticulously designed to cater to NFT enthu
   - **Loss-making volume**
   - **Other behavioral indicators**  
 
----
-
-## 9. **NFT Trader's Hub (AI Agent powered by Cohere)**
+### 9. **NFT Trader's Hub (AI Agent powered by Cohere)**
 **NFT Trader’s Hub** is an advanced AI assistant designed to **answer questions** about NFT collections, market trends, tokens, and investment strategies. It provides **expert advice** to help users make informed decisions in the world of NFTs and digital assets.
 
 ### **How It Works**
