@@ -93,7 +93,7 @@ def nft_image_upload():
         # Send the image to Unleash NFTs API
         url = "https://api-cdv.unleashnfts.com/api/v1/nft/image/detect-counterfiet?offset=0&limit=10"
         files = {'image': (image_file.filename, image_file.stream, 'image/png')}
-        headers = {"accept": "application/json", "x-api-key": "316dd88ae8840897e1f61160265d1a3f"}
+        headers = {"accept": "application/json", "x-api-key": "25b658b989ac45f289e072ec17975772"}
 
         response = requests.post(url, files=files, headers=headers)
 

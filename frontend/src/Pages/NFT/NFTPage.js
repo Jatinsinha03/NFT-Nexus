@@ -25,7 +25,7 @@ function NFTPage() {
                     method: "GET",
                     headers: {
                         "accept": "application/json",
-                        "x-api-key": "316dd88ae8840897e1f61160265d1a3f",
+                        "x-api-key": "25b658b989ac45f289e072ec17975772",
                     },
                 }
             );
@@ -36,7 +36,7 @@ function NFTPage() {
                     method: "GET",
                     headers: {
                         "accept": "application/json",
-                        "x-api-key": "316dd88ae8840897e1f61160265d1a3f",
+                        "x-api-key": "25b658b989ac45f289e072ec17975772",
                     },
                 }
             );
