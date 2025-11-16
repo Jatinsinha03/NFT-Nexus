@@ -14,10 +14,10 @@ const NFTTable = () => {
 
   const fetchNFTs = (page) => {
     setIsLoading(true);
-    axios.get('https://api.unleashnfts.com/api/v1/transactions', {
+    // Use backend proxy to avoid CORS issues
+    axios.get('https://nft-nexus-backend.onrender.com/api/unleash/transactions', {
       headers: {
-        'accept': 'application/json',
-        'x-api-key': '25b658b989ac45f289e072ec17975772'
+        'Content-Type': 'application/json'
       },
       params: {
         currency: 'eth',

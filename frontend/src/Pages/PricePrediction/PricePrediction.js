@@ -18,12 +18,13 @@ const PricePrediction = ({ contractAddress, blockchain }) => {
     setPriceData(null);
 
     try {
+      // Use backend proxy to avoid CORS issues
       const response = await fetch(
-        `https://api.unleashnfts.com/api/v2/nft/liquify/price_estimate?blockchain=${blockchain}&contract_address=${contractAddress}&token_id=${tokenId}`,
+        `https://nft-nexus-backend.onrender.com/api/unleash/liquify/price_estimate?blockchain=${blockchain}&contract_address=${contractAddress}&token_id=${tokenId}`,
         {
+          method: "GET",
           headers: {
-            accept: 'application/json',
-            'x-api-key': '25b658b989ac45f289e072ec17975772',
+            'Content-Type': 'application/json',
           },
         }
       );

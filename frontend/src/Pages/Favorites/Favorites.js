@@ -13,13 +13,13 @@ function Favorites() {
 
   const fetchNftCollectionData = async (contractAddress) => {
     try {
+      // Use backend proxy to avoid CORS issues
       const response = await fetch(
-        `https://api.unleashnfts.com/api/v2/nft/collection/metadata?sort_order=desc&offset=0&limit=30&contract_address=${contractAddress}`,
+        `https://nft-nexus-backend.onrender.com/api/unleash/collection/metadata?sort_order=desc&offset=0&limit=30&contract_address=${contractAddress}`,
         {
           method: 'GET',
           headers: {
-            accept: 'application/json',
-            'x-api-key': '25b658b989ac45f289e072ec17975772',
+            'Content-Type': 'application/json',
           },
         }
       );

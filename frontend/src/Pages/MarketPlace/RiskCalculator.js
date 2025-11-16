@@ -13,11 +13,10 @@ const RiskCalculator = () => {
 
   // Function to fetch data based on user input
   const fetchData = async () => {
-    const apiKey = '25b658b989ac45f289e072ec17975772';
-
     try {
+      // Use backend proxy to avoid CORS issues
       const [analyticsResponse, tradersResponse, washtradeResponse] = await Promise.all([
-        axios.get(`https://api.unleashnfts.com/api/v2/nft/marketplace/analytics`, {
+        axios.get(`https://nft-nexus-backend.onrender.com/api/unleash/marketplace/analytics`, {
           params: {
             blockchain,
             name: marketplaceName,
@@ -28,10 +27,10 @@ const RiskCalculator = () => {
             offset: 0
           },
           headers: {
-            'x-api-key': apiKey
+            'Content-Type': 'application/json'
           }
         }),
-        axios.get(`https://api.unleashnfts.com/api/v2/nft/marketplace/traders`, {
+        axios.get(`https://nft-nexus-backend.onrender.com/api/unleash/marketplace/traders`, {
           params: {
             blockchain,
             name: marketplaceName,
@@ -42,10 +41,10 @@ const RiskCalculator = () => {
             offset: 0
           },
           headers: {
-            'x-api-key': apiKey
+            'Content-Type': 'application/json'
           }
         }),
-        axios.get(`https://api.unleashnfts.com/api/v2/nft/marketplace/washtrade`, {
+        axios.get(`https://nft-nexus-backend.onrender.com/api/unleash/marketplace/washtrade`, {
           params: {
             blockchain,
             name: marketplaceName,
@@ -56,7 +55,7 @@ const RiskCalculator = () => {
             offset: 0
           },
           headers: {
-            'x-api-key': apiKey
+            'Content-Type': 'application/json'
           }
         })
       ]);

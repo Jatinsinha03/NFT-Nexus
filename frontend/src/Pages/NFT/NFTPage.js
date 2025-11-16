@@ -19,24 +19,23 @@ function NFTPage() {
     // Fetch metadata and profile data
     const fetchNftData = async () => {
         try {
+            // Use backend proxy to avoid CORS issues
             const metadataResponse = await fetch(
-                `https://api.unleashnfts.com/api/v2/nft/collection/metadata?sort_order=desc&offset=0&limit=30&contract_address=${contractAddress}`,
+                `https://nft-nexus-backend.onrender.com/api/unleash/collection/metadata?sort_order=desc&offset=0&limit=30&contract_address=${contractAddress}`,
                 {
                     method: "GET",
                     headers: {
-                        "accept": "application/json",
-                        "x-api-key": "25b658b989ac45f289e072ec17975772",
+                        "Content-Type": "application/json",
                     },
                 }
             );
 
             const profileResponse = await fetch(
-                `https://api.unleashnfts.com/api/v2/nft/collection/profile?blockchain=ethereum&contract_address=${contractAddress}&time_range=all&offset=0&limit=30&sort_by=collection_score&sort_order=desc`,
+                `https://nft-nexus-backend.onrender.com/api/unleash/collection/profile?blockchain=ethereum&contract_address=${contractAddress}&time_range=all&offset=0&limit=30&sort_by=collection_score&sort_order=desc`,
                 {
                     method: "GET",
                     headers: {
-                        "accept": "application/json",
-                        "x-api-key": "25b658b989ac45f289e072ec17975772",
+                        "Content-Type": "application/json",
                     },
                 }
             );

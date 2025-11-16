@@ -15,6 +15,7 @@ app.get("/",(req,res)=>{
 })
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/nft', require('./routes/nftFavorite'));
+app.use('/api/unleash', require('./routes/unleash'));
 
 app.listen(port,()=>{
     console.log(`App listening on http://localhost:${port}`)

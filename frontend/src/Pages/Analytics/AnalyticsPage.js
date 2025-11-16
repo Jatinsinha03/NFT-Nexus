@@ -15,12 +15,13 @@ const AnalyticsPage = ({ contractAddress }) => {
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
+        // Use backend proxy to avoid CORS issues
         const response = await fetch(
-          `https://api.unleashnfts.com/api/v2/nft/collection/analytics?blockchain=ethereum&contract_address=${contractAddress}&offset=0&limit=30&sort_by=sales&time_range=24h&sort_order=desc`,
+          `https://nft-nexus-backend.onrender.com/api/unleash/collection/analytics?blockchain=ethereum&contract_address=${contractAddress}&offset=0&limit=30&sort_by=sales&time_range=24h&sort_order=desc`,
           {
+            method: "GET",
             headers: {
-              accept: "application/json",
-              "x-api-key": "25b658b989ac45f289e072ec17975772",
+              "Content-Type": "application/json",
             },
           }
         );

@@ -32,13 +32,13 @@ function Main() {
       const json = await response.json();
       setUserDetails({ name: json.name, walletAddress: json.walletAddress });
 
+      // Use backend proxy to avoid CORS issues
       const unleashResponse = await fetch(
-        `https://api.unleashnfts.com/api/v2/nft/wallet/profile?wallet=${json.walletAddress}&offset=0&limit=30`,
+        `https://nft-nexus-backend.onrender.com/api/unleash/wallet/profile?wallet=${json.walletAddress}&offset=0&limit=30`,
         {
           method: "GET",
           headers: {
-            "accept": "application/json",
-            "x-api-key": "25b658b989ac45f289e072ec17975772",
+            "Content-Type": "application/json",
           },
         }
       );

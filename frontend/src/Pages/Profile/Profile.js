@@ -26,29 +26,27 @@ const Profile = () => {
       setUserDetails({ name: json.name, walletAddress: json.walletAddress });
     };
 
-    // Fetch ERC-20 portfolio
+    // Fetch ERC-20 portfolio - Use backend proxy to avoid CORS issues
     const fetchErc20Portfolio = async () => {
       const response = await axios.get(
-        `https://api.unleashnfts.com/api/v2/wallet/balance/token?address=${userDetails.walletAddress}&blockchain=ethereum&time_range=all&offset=${erc20Page}&limit=30`,
+        `https://nft-nexus-backend.onrender.com/api/unleash/wallet/balance/token?address=${userDetails.walletAddress}&blockchain=ethereum&time_range=all&offset=${erc20Page}&limit=30`,
         {
           headers: {
-            accept: "application/json",
-            "x-api-key": "25b658b989ac45f289e072ec17975772",
+            "Content-Type": "application/json",
           },
         }
       );
       setErc20Portfolio(response.data.data);
     };
 
-    // Fetch NFT portfolio
+    // Fetch NFT portfolio - Use backend proxy to avoid CORS issues
     const fetchNftPortfolio = async () => {
       try {
         const response = await axios.get(
-          `https://api.unleashnfts.com/api/v2/wallet/balance/nft?wallet=${userDetails.walletAddress}&blockchain=ethereum&time_range=all&offset=${nftPage}&limit=30`,
+          `https://nft-nexus-backend.onrender.com/api/unleash/wallet/balance/nft?wallet=${userDetails.walletAddress}&blockchain=ethereum&time_range=all&offset=${nftPage}&limit=30`,
           {
             headers: {
-              accept: "application/json",
-              "x-api-key": "25b658b989ac45f289e072ec17975772",
+              "Content-Type": "application/json",
             },
           }
         );
