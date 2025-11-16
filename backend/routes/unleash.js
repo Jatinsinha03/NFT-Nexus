@@ -45,13 +45,13 @@ router.get('/wallet/profile', async (req, res) => {
 
 // Proxy route for collection metadata
 router.get('/collection/metadata', async (req, res) => {
-  const { contract_address, sort_order = 'desc', offset = 0, limit = 30 } = req.query;
+  const { contract_address, blockchain = 'ethereum', sort_order = 'desc', offset = 0, limit = 30 } = req.query;
 
   if (!contract_address) {
     return res.status(400).json({ error: 'Contract address is required' });
   }
 
-  const url = `${UNLEASH_BASE_URL}/api/v2/nft/collection/metadata?sort_order=${sort_order}&offset=${offset}&limit=${limit}&contract_address=${contract_address}`;
+  const url = `${UNLEASH_BASE_URL}/api/v2/nft/collection/metadata?blockchain=${blockchain}&sort_order=${sort_order}&offset=${offset}&limit=${limit}&contract_address=${contract_address}`;
   await proxyRequest(url, res);
 });
 
