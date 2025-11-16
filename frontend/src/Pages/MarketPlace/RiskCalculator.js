@@ -13,7 +13,7 @@ const RiskCalculator = () => {
 
   // Function to fetch data based on user input
   const fetchData = async () => {
-    const apiKey = '316dd88ae8840897e1f61160265d1a3f';
+    const apiKey = '25b658b989ac45f289e072ec17975772';
 
     try {
       const [analyticsResponse, tradersResponse, washtradeResponse] = await Promise.all([
